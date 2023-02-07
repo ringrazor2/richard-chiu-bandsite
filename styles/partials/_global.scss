@@ -1,0 +1,95 @@
+@use "variables";
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/Font/AvenirNextLTPro-Regular.otf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/Font/AvenirNextLTPro-Demi.otf") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/Font/AvenirNextLTPro-Bold.otf") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin flex($axis) {
+  display: flex;
+  flex-flow: $axis wrap;
+}
+@mixin title($fontSize, $color) {
+  color: $color;
+  font-size: $fontSize;
+}
+@mixin font($family, $weight) {
+  font-family: $family;
+  font-weight: $weight;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Avenir Next";
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.nav {
+  background-color: variables.$bandSiteBlack;
+  @include flex(column);
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+
+  &__title {
+    @include title(1.5rem, white);
+    @include font("Avenir Next", 400);
+    text-align: center;
+    line-height: 2rem;
+    letter-spacing: 2px;
+
+    &-container {
+      &__title-container {
+        padding: 2rem;
+      }
+    }
+  }
+  &__links {
+    @include flex(row);
+    justify-content: space-around;
+
+    &-container {
+      // padding: 0 4rem;
+      width: 100%;
+    }
+  }
+  &__link {
+    @include title(20px, white);
+    list-style: none;
+    @include flex(row);
+
+    &-container {
+      &--active {
+        width: 100%vw;
+        border-bottom: solid 4px white;
+        //figure out how to get the border to extend / make div take up half space
+      }
+    }
+  }
+}
+.footer {
+  &__title {
+    @include title(36px, white);
+  }
+}
