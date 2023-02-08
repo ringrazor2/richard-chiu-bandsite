@@ -31,12 +31,16 @@ a {
   color: inherit;
 }
 
+.bold-light {
+  font-weight: 600;
+}
+
 .nav {
   background-color: #323232;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  align-items: center;
+  padding-top: 1rem;
   width: 100vw;
 }
 .nav__title {
@@ -47,6 +51,9 @@ a {
   text-align: center;
   line-height: 2rem;
   letter-spacing: 2px;
+  padding-top: 1.5rem;
+  font-size: 48px;
+  padding-bottom: 2rem;
 }
 .nav__title-container__title-container {
   padding: 2rem;
@@ -54,24 +61,138 @@ a {
 .nav__links {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .nav__links-container {
-  width: 100%;
+  width: auto;
 }
 .nav__link {
   color: white;
-  font-size: 20px;
+  font-size: 24px;
   list-style: none;
   display: flex;
   flex-flow: row wrap;
 }
+.nav__link--active {
+  font-family: 700;
+}
+.nav__link-container {
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
 .nav__link-container--active {
-  width: 100% vw;
-  border-bottom: solid 4px white;
+  border-bottom: solid 8px white;
 }
 
+.footer {
+  background-color: #323232;
+  padding-left: 2rem;
+  padding-top: 3rem;
+  color: white;
+}
+.footer p {
+  font-size: 1.6rem;
+}
+.footer div {
+  padding-top: 2.4rem;
+}
 .footer__title {
   color: white;
-  font-size: 36px;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.footer__copyright {
+  margin-top: 5rem;
+  padding-bottom: 2rem;
+}
+.footer__copyright__title {
+  font-size: 2.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.socials {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 50%;
+  margin: 1.5rem 0;
+}
+.socials__img {
+  height: 3rem;
+}
+
+.hero {
+  background-image: url("../assets/Images/hero-bio.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 30vh;
+  width: 100vw;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  opacity: 0.9;
+}
+.hero__title {
+  color: white;
+  font-size: 42px;
+  font-weight: 700;
+  padding-left: 3rem;
+  z-index: 10;
+}
+
+.bandimg {
+  width: 100vw;
+  height: 30vh;
+  padding: 0 2rem;
+}
+
+.musicians__title {
+  font-size: 48px;
+  padding: 2.5rem 2rem;
+  font-weight: 600;
+}
+.musicians p {
+  padding: 0 2rem;
+  font-size: 2rem;
+}
+.musicians__quote, .musicians__author {
+  margin-top: 2rem;
+  font-weight: 600;
+  line-height: 3.125rem;
+}
+.musicians__band {
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+.musicians__bio--cont {
+  margin-top: 2.75rem;
+  margin-bottom: 2.75rem;
+}
+
+.gallery {
+  padding: 0 2rem;
+  background-color: #FAFAFA;
+  display: flex;
+  flex-flow: column wrap;
+}
+.gallery__title {
+  font-size: 48px;
+  padding: 2.5rem 0;
+  font-weight: 600;
+}
+.gallery__imgs {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.gallery__img {
+  padding-bottom: 2.5rem;
+  width: 100%;
+  height: 30%;
 }/*# sourceMappingURL=bio.css.map */

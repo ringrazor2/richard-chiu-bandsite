@@ -1,3 +1,81 @@
 @use "./partials/global";
 @use "./partials/variables";
 
+@mixin flex($axis) {
+  display: flex;
+  flex-flow: $axis wrap;
+}
+.hero {
+  background-image: url("../assets/Images/hero-bio.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 30vh;
+  width: 100vw;
+  @include flex(row);
+  align-items: center;
+  opacity: 0.9;
+
+  &__title {
+    color: white;
+    font-size: 42px;
+    font-weight: 700;
+    padding-left: 3rem;
+    z-index: 10;
+  }
+}
+
+.bandimg {
+  width: 100vw;
+  height: 30vh;
+  padding: 0 2rem;
+}
+
+.musicians {
+  &__title {
+    font-size: 48px;
+    padding: 2.5rem 2rem;
+    font-weight: 600;
+  }
+  p {
+    padding: 0 2rem;
+    font-size: 2rem;
+  }
+  &__quote,
+  &__author {
+    margin-top: 2rem;
+    font-weight: 600;
+    line-height: 3.125rem;
+  }
+  &__band {
+    margin-top: 3.5rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+  &__bio--cont {
+    margin-top: 2.75rem;
+    margin-bottom: 2.75rem;
+  }
+}
+
+.gallery {
+  padding: 0 2rem;
+  background-color: variables.$alabaster;
+  @include flex(column);
+//   max-width: 48rem;
+
+  &__title {
+    font-size: 48px;
+    padding: 2.5rem 0;
+    font-weight: 600;
+  }
+  &__imgs {
+    @include flex(column);
+    align-items: center;
+  }
+  &__img {
+    padding-bottom: 2.5rem;
+    width: 100%;
+    height: 30%;
+  }
+}

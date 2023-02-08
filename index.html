@@ -20,7 +20,7 @@
                 <h3><a href="./index.html">Biography</a></h3>
               </li>
             </div>
-            <div class="nav__link-container">
+            <div class="nav__link-container nav__link-container--nonActive">
               <li class="nav__link">
                 <h3><a href="">Shows</a></h3>
               </li>
@@ -30,12 +30,12 @@
       </nav>
 
       <section class="hero">
-        <h2>The Bees Knees</h2>
+        <h2 class="hero__title">The Bees Knees</h2>
       </section>
     </header>
 
     <section class="musicians">
-      <h2>About the Musicians</h2>
+      <h2 class="musicians__title">About the Musicians</h2>
       <img src="./assets/Images/band.jpg" alt="band" class="bandimg" />
       <p class="musicians__quote">
         "We push each other to be the best. It's not uncommon for one of us to
@@ -45,7 +45,7 @@
         - Bryan Teddy, lead vocalist of The Bees Knees
       </p>
       <p class="musicians__band">The Bees Knees</p>
-      <p class="musicians__bio bio-1">
+      <p class="musicians__bio">
         The Bees Knees is a pop rock band originating from San Francisco,
         California. The band consists of lead vocalist Bryan Teddy, guitarist
         Mack Tolkens, guitarist Andrew Green, bassist Kent Zulkee and drummer
@@ -56,7 +56,7 @@
         pushing them to sign with Magenta Records.
       </p>
 
-      <p class="musicians__bio bio-2">
+      <p class="musicians__bio musicians__bio--cont">
         From there, the band has soared, gaining international recognition and
         ranking in the top 10 on the Poster Charts. New fans immediately fell in
         love with the band’s original and organic attitude, solidifying their
@@ -68,76 +68,82 @@
       </p>
     </section>
 
-    <section class="photos">
-      <h2>Photo Gallery</h2>
-      <img
-        src="./assets/Images/Photo-gallery-1.jpg"
-        class="photos__img"
-        alt="rave"
-      />
-      <img
-        src="./assets/Images/Photo-gallery-2.jpg"
-        class="photos__img"
-        alt="party"
-      />
-      <img
-        src="./assets/Images/Photo-gallery-3.jpg"
-        class="photos__img"
-        alt="excitement"
-      />
-      <img
-        src="./assets/Images/Photo-gallery-4.jpg"
-        class="photos__img"
-        alt="cheering"
-      />
-      <img
-        src="./assets/Images/Photo-gallery-5.jpg"
-        class="photos__img"
-        alt="party"
-      />
-      <img
-        src="./assets/Images/Photo-gallery-6.jpg"
-        class="photos__img"
-        alt="mic'd up"
-      />
-      <img
-        src="./assets/Images/Photo-gallery-7.jpg"
-        class="photos__img"
-        alt="light-show"
-      />
-      <img
-        src="./assets/Images/Photo-gallery-8.jpg"
-        class="photos__img"
-        alt="DJ"
-      />
-      <img
-        src="./assets/Images/Photo-gallery-9.jpg"
-        class="photos__img"
-        alt="confetti"
-      />
+    <section class="gallery">
+      <h2 class="gallery__title">Photo Gallery</h2>
+      <div class="gallery__imgs">
+        <img
+          src="./assets/Images/Photo-gallery-1.jpg"
+          class="gallery__img"
+          alt="rave"
+        />
+        <img
+          src="./assets/Images/Photo-gallery-2.jpg"
+          class="gallery__img"
+          alt="party"
+        />
+        <img
+          src="./assets/Images/Photo-gallery-3.jpg"
+          class="gallery__img"
+          alt="excitement"
+        />
+        <img
+          src="./assets/Images/Photo-gallery-4.jpg"
+          class="gallery__img"
+          alt="cheering"
+        />
+        <img
+          src="./assets/Images/Photo-gallery-5.jpg"
+          class="gallery__img"
+          alt="party"
+        />
+        <img
+          src="./assets/Images/Photo-gallery-6.jpg"
+          class="gallery__img"
+          alt="mic'd up"
+        />
+        <img
+          src="./assets/Images/Photo-gallery-7.jpg"
+          class="gallery__img"
+          alt="light-show"
+        />
+        <img
+          src="./assets/Images/Photo-gallery-8.jpg"
+          class="gallery__img"
+          alt="DJ"
+        />
+        <img
+          src="./assets/Images/Photo-gallery-9.jpg"
+          class="gallery__img"
+          alt="confetti"
+        />
+      </div>
     </section>
     <footer class="footer">
       <h2 class="footer__title">Get in Touch</h2>
       <div class="socials">
-        <img
-          src="assets/Icons/SVG/Icon-instagram.svg"
-          class="socials__img"
-          alt="instagram"
-        />
-        <img
-          src="assets/Icons/SVG/Icon-facebook.svg"
-          class="socials__img"
-          alt="instagram"
-        />
-        <img
-          src="assets/Icons/SVG/Icon-twitter.svg"
-          class="socials__img"
-          alt="instagram"
-        />
+        <a href="https://www.instagram.com/" target="_blank"
+          ><img
+            src="assets/Icons/SVG/Icon-instagram.svg"
+            class="socials__img"
+            alt="instagram"
+        /></a>
+
+        <a href="https://www.facebook.com/" target="_blank"
+          ><img
+            src="assets/Icons/SVG/Icon-facebook.svg"
+            class="socials__img"
+            alt="instagram"
+        /></a>
+        <a href="https://twitter.com/" target="_blank"
+          ><img
+            src="assets/Icons/SVG/Icon-twitter.svg"
+            class="socials__img"
+            alt="instagram"
+        /></a>
       </div>
       <div>
-        <p>Cam Adams</p>
-        <p>The Bees Knees Management</p>
+        <p class="bold-light">Cam Adams</p>
+        <p class="bold-light">The Bees Knees Management</p>
       </div>
       <div>
         <p>503 Broadway Penthouse,</p>
@@ -147,8 +153,8 @@
         <p>info@thebeesknees.com</p>
       </div>
       <div>
-        <p>Pearl Gregg</p>
-        <p>Limitless Artist Group</p>
+        <p class="bold-light">Pearl Gregg</p>
+        <p class="bold-light">Limitless Artist Group</p>
       </div>
       <div>
         <p>Booking Agent for</p>
@@ -158,8 +164,8 @@
         <p>pearl.gregg@limitlessag.com</p>
       </div>
       <div>
-        <p>Carson Whyte</p>
-        <p>Arch Entertainment</p>
+        <p class="bold-light">Carson Whyte</p>
+        <p class="bold-light">Arch Entertainment</p>
       </div>
       <div>
         <p>Booking Agent for</p>
@@ -168,8 +174,8 @@
       <div>
         <p>cwhyte@archentertainment.com</p>
       </div>
-      <div>
-        <h2>BANDSITE</h2>
+      <div class="footer__copyright">
+        <h2 class="footer__copyright__title">BANDSITE</h2>
         <p>Copyright The Bees Knees © 2021 All Rights Reserved</p>
       </div>
     </footer>
