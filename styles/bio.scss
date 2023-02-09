@@ -3,7 +3,8 @@
 
 @mixin flex($axis) {
   display: flex;
-  flex-flow: $axis wrap;
+  flex-direction: $axis;
+  flex-wrap: wrap;
 }
 .hero {
   background-image: url("../assets/Images/hero-bio.jpg");
@@ -26,9 +27,9 @@
 }
 
 .bandimg {
-  width: 100vw;
-  height: 30vh;
+  height: 50vw;
   padding: 0 2rem;
+  width: 100%;
 }
 
 .musicians {
@@ -62,7 +63,6 @@
   padding: 0 2rem;
   background-color: variables.$alabaster;
   @include flex(column);
-//   max-width: 48rem;
 
   &__title {
     font-size: 48px;
@@ -70,12 +70,13 @@
     font-weight: 600;
   }
   &__imgs {
-    @include flex(column);
+    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
   }
   &__img {
     padding-bottom: 2.5rem;
-    width: 100%;
     height: 30%;
+    width: 100%;
   }
 }

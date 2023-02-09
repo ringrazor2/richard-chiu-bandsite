@@ -18,7 +18,16 @@
   font-weight: 700;
   font-style: normal;
 }
-
+@mixin tablet {
+  @media screen and (min-width: 48rem) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media screen and (min-width: 80rem) {
+    @content;
+  }
+}
 @mixin flex($axis) {
   display: flex;
   flex-flow: $axis wrap;
@@ -45,6 +54,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+img {
+  object-fit: cover;
+}
 .bold-light {
   font-weight: 600;
 }
@@ -55,6 +67,13 @@ a {
   padding-top: 1rem;
   // align-items: center;
   width: 100vw;
+  @include tablet() {
+    @include flex(row);
+    justify-content: flex-start;
+    padding-left: 3rem;
+    height: 10vh;
+    align-items: center;
+  }
 
   &__title {
     @include title(1.5rem, white);
@@ -68,7 +87,12 @@ a {
 
     &-container {
       &__title-container {
-        padding: 2rem;
+        margin: 2rem;
+      }
+      &-container {
+        @include tablet {
+          margin-right: 5rem;
+        }
       }
     }
   }
@@ -79,12 +103,22 @@ a {
     &-container {
       // padding: 0 4rem;
       width: auto; //removing width makes it centered
+      height: 100%;
+      @include tablet {
+        @include flex(row);
+        justify-content: center;
+        align-items: center;
+        border-bottom: solid 8px white;
+      }
     }
   }
   &__link {
     @include title(24px, white);
     list-style: none;
     @include flex(row);
+    @include tablet {
+      margin-left: 4rem;
+    }
 
     &--active {
       font-family: 700;
@@ -98,35 +132,87 @@ a {
 
       &--active {
         border-bottom: solid 8px white;
-        // figure out how to get borders to match design wise
+        // height: 100%;
+        @include tablet() {
+          border: none;
+        }
       }
     }
   }
 }
 .footer {
   background-color: variables.$bandSiteBlack;
-  padding-left: 2rem;
-  padding-top: 3rem;
+  padding: 3rem 2rem;
   color: white;
- 
-  p{
-    font-size: 1.6rem;
+  @include tablet {
+    padding-top: 2rem;
+    padding-left: 3.5rem;
   }
-  div {
+
+  p {
+    font-size: 1.6rem;
+    @include tablet {
+      font-size: 1.2rem;
+    }
+  }
+  &__div-p {
     padding-top: 2.4rem;
+    @include tablet {
+      padding-top: 4rem;
+    }
+  }
+
+  &__div1 {
+    @include tablet {
+      @include flex(row);
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2.5rem;
+      padding-right: 5rem;
+    }
   }
 
   &__title {
-    @include title(3rem, white); // refer to style sheet for font size
+    @include title(3rem, white);
     font-weight: 600;
+    @include tablet {
+      font-size: 3rem;
+      // padding-left: 5rem;
+    }
   }
   &__copyright {
     margin-top: 5rem;
     padding-bottom: 2rem;
 
-    &__title{
+    &__title {
       font-size: 2.5rem;
       margin-bottom: 1.8rem;
+    }
+  }
+  &__upperDiv-tablet {
+    // position: relative;
+    padding: 0;
+    @include flex(column);
+    @include tablet {
+      @include flex(row);
+      align-items: center;
+      justify-content: flex-start;
+      // flex-wrap: nowrap;
+    }
+  }
+  &__containerMid-tablet {
+    @include tablet {
+      @include flex(row);
+    }
+    &__inner {
+      @include tablet {
+        margin-right: 3.5rem;
+      }
+    }
+  }
+  &__containerMid-tablet {
+    @include tablet {
+      @include flex(row);
     }
   }
 }
@@ -134,9 +220,49 @@ a {
   @include flex(row);
   justify-content: space-between;
   width: 50%;
-  margin: 1.5rem 0;
+  margin: 0;
+  padding: 2.4rem 0;
 
-  &__img{
-    height: 3rem;
+  @include tablet {
+    width: 33vw;
+    max-width: 25%;
+    margin: 0;
+    margin-left: 5rem;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__img {
+    height: 2rem;
+    @include tablet {
+      height: 2rem;
+    }
+  }
+}
+.hidden {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+  &-tablet {
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.bandsite-tablet {
+  @include title(2.5rem, white);
+  // position: absolute;
+  // right: 0;
+  // margin-right: 5rem;
+  @include tablet {
+    justify-self: flex-end;
+    align-items: flex-end;
+    display: inline-flex;
+    font-size: 2rem;
+    // padding-top: 4rem;
   }
 }

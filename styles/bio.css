@@ -31,6 +31,11 @@ a {
   color: inherit;
 }
 
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .bold-light {
   font-weight: 600;
 }
@@ -42,6 +47,16 @@ a {
   justify-content: center;
   padding-top: 1rem;
   width: 100vw;
+}
+@media screen and (min-width: 48rem) {
+  .nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding-left: 3rem;
+    height: 10vh;
+    align-items: center;
+  }
 }
 .nav__title {
   color: white;
@@ -56,7 +71,12 @@ a {
   padding-bottom: 2rem;
 }
 .nav__title-container__title-container {
-  padding: 2rem;
+  margin: 2rem;
+}
+@media screen and (min-width: 48rem) {
+  .nav__title-container-container {
+    margin-right: 5rem;
+  }
 }
 .nav__links {
   display: flex;
@@ -65,6 +85,16 @@ a {
 }
 .nav__links-container {
   width: auto;
+  height: 100%;
+}
+@media screen and (min-width: 48rem) {
+  .nav__links-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid 8px white;
+  }
 }
 .nav__link {
   color: white;
@@ -72,6 +102,11 @@ a {
   list-style: none;
   display: flex;
   flex-flow: row wrap;
+}
+@media screen and (min-width: 48rem) {
+  .nav__link {
+    margin-left: 4rem;
+  }
 }
 .nav__link--active {
   font-family: 700;
@@ -87,23 +122,58 @@ a {
 .nav__link-container--active {
   border-bottom: solid 8px white;
 }
+@media screen and (min-width: 48rem) {
+  .nav__link-container--active {
+    border: none;
+  }
+}
 
 .footer {
   background-color: #323232;
-  padding-left: 2rem;
-  padding-top: 3rem;
+  padding: 3rem 2rem;
   color: white;
+}
+@media screen and (min-width: 48rem) {
+  .footer {
+    padding-top: 2rem;
+    padding-left: 3.5rem;
+  }
 }
 .footer p {
   font-size: 1.6rem;
 }
-.footer div {
+@media screen and (min-width: 48rem) {
+  .footer p {
+    font-size: 1.2rem;
+  }
+}
+.footer__div-p {
   padding-top: 2.4rem;
+}
+@media screen and (min-width: 48rem) {
+  .footer__div-p {
+    padding-top: 4rem;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .footer__div1 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2.5rem;
+    padding-right: 5rem;
+  }
 }
 .footer__title {
   color: white;
   font-size: 3rem;
   font-weight: 600;
+}
+@media screen and (min-width: 48rem) {
+  .footer__title {
+    font-size: 3rem;
+  }
 }
 .footer__copyright {
   margin-top: 5rem;
@@ -113,16 +183,91 @@ a {
   font-size: 2.5rem;
   margin-bottom: 1.8rem;
 }
+.footer__upperDiv-tablet {
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+}
+@media screen and (min-width: 48rem) {
+  .footer__upperDiv-tablet {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .footer__containerMid-tablet {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .footer__containerMid-tablet__inner {
+    margin-right: 3.5rem;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .footer__containerMid-tablet {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
 
 .socials {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   width: 50%;
-  margin: 1.5rem 0;
+  margin: 0;
+  padding: 2.4rem 0;
+}
+@media screen and (min-width: 48rem) {
+  .socials {
+    width: 33vw;
+    max-width: 25%;
+    margin: 0;
+    margin-left: 5rem;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 .socials__img {
-  height: 3rem;
+  height: 2rem;
+}
+@media screen and (min-width: 48rem) {
+  .socials__img {
+    height: 2rem;
+  }
+}
+
+.hidden {
+  display: none;
+}
+@media screen and (min-width: 48rem) {
+  .hidden {
+    display: block;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .hidden-tablet {
+    display: none;
+  }
+}
+
+.bandsite-tablet {
+  color: white;
+  font-size: 2.5rem;
+}
+@media screen and (min-width: 48rem) {
+  .bandsite-tablet {
+    justify-self: flex-end;
+    align-items: flex-end;
+    display: inline-flex;
+    font-size: 2rem;
+  }
 }
 
 .hero {
@@ -133,7 +278,8 @@ a {
   height: 30vh;
   width: 100vw;
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   opacity: 0.9;
 }
@@ -146,9 +292,9 @@ a {
 }
 
 .bandimg {
-  width: 100vw;
-  height: 30vh;
+  height: 50vw;
   padding: 0 2rem;
+  width: 100%;
 }
 
 .musicians__title {
@@ -179,7 +325,8 @@ a {
   padding: 0 2rem;
   background-color: #FAFAFA;
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .gallery__title {
   font-size: 48px;
@@ -187,12 +334,12 @@ a {
   font-weight: 600;
 }
 .gallery__imgs {
-  display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
 }
 .gallery__img {
   padding-bottom: 2.5rem;
-  width: 100%;
   height: 30%;
+  width: 100%;
 }/*# sourceMappingURL=bio.css.map */
