@@ -17,8 +17,7 @@
   align-items: center;
   opacity: 0.9;
 
-  // @include tablet {
-  // }
+ 
 
   &__title {
     color: white;
@@ -53,12 +52,6 @@
       align-self: flex-start;
     }
   }
-  p {
-    @include global.tablet {
-      width: 85vw;
-      font-size: 1.3rem;
-    }
-  }
   &__quote,
   &__author {
     padding: 0 2rem;
@@ -66,6 +59,10 @@
     margin-top: 2rem;
     font-weight: 600;
     line-height: 3.125rem;
+    @include global.tablet {
+      font-size: 1.3rem;
+      width: 85vw;
+    }
   }
   &__quote {
     @include global.tablet {
@@ -84,24 +81,34 @@
     margin-top: 3.5rem;
     margin-bottom: 2rem;
     font-weight: 500;
+    @include global.tablet {
+      font-weight: 600;
+      align-self: flex-start;
+      width: 85vw;
+      padding: 0 6rem;
+    }
   }
   // code for bio not registering on web / styles not applied
   &__bio {
     padding: 0 2rem;
     font-size: 2rem;
     @include global.tablet {
-      font-size: 16px;
+      font-size: 18px;
+      width: 42vw;
     }
     &-container {
       @include global.tablet {
         @include flex(row);
+        width: 85vw;
       }
     }
     &-cont {
       padding: 0 2rem;
-      font-size: 2rem;
       margin-top: 2.75rem;
       margin-bottom: 2.75rem;
+      @include global.tablet {
+        margin: 0;
+      }
     }
   }
 }

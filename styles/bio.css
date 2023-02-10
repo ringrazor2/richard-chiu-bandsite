@@ -66,9 +66,9 @@ img {
 }
 @media screen and (min-width: 48rem) {
   .nav h3 {
-    font-size: 14px;
+    font-size: 16px;
     padding-top: 0.75rem;
-    padding-bottom: 2.75rem;
+    padding-bottom: 2rem;
   }
 }
 .nav__title {
@@ -140,6 +140,10 @@ img {
   .nav__link-container--active {
     border: none;
   }
+}
+.nav__link__name--active {
+  border-bottom: solid 4px white;
+  font-weight: 700;
 }
 
 .footer {
@@ -342,18 +346,18 @@ img {
     align-self: flex-start;
   }
 }
-@media screen and (min-width: 48rem) {
-  .musicians p {
-    width: 85vw;
-    font-size: 1.3rem;
-  }
-}
 .musicians__quote, .musicians__author {
   padding: 0 2rem;
   font-size: 2rem;
   margin-top: 2rem;
   font-weight: 600;
   line-height: 3.125rem;
+}
+@media screen and (min-width: 48rem) {
+  .musicians__quote, .musicians__author {
+    font-size: 1.3rem;
+    width: 85vw;
+  }
 }
 @media screen and (min-width: 48rem) {
   .musicians__quote {
@@ -373,13 +377,22 @@ img {
   margin-bottom: 2rem;
   font-weight: 500;
 }
+@media screen and (min-width: 48rem) {
+  .musicians__band {
+    font-weight: 600;
+    align-self: flex-start;
+    width: 85vw;
+    padding: 0 6rem;
+  }
+}
 .musicians__bio {
   padding: 0 2rem;
   font-size: 2rem;
 }
 @media screen and (min-width: 48rem) {
   .musicians__bio {
-    font-size: 16px;
+    font-size: 18px;
+    width: 42vw;
   }
 }
 @media screen and (min-width: 48rem) {
@@ -387,13 +400,18 @@ img {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 85vw;
   }
 }
 .musicians__bio-cont {
   padding: 0 2rem;
-  font-size: 2rem;
   margin-top: 2.75rem;
   margin-bottom: 2.75rem;
+}
+@media screen and (min-width: 48rem) {
+  .musicians__bio-cont {
+    margin: 0;
+  }
 }
 
 .gallery {

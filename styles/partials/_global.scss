@@ -81,9 +81,9 @@ img {
   h3 {
     padding-bottom: 1rem;
     @include tablet {
-      font-size: 14px;
+      font-size: 16px;
       padding-top: 0.75rem;
-      padding-bottom: 2.75rem;
+      padding-bottom: 2rem;
     }
   }
   &__title {
@@ -104,7 +104,7 @@ img {
     @include flex(row);
     justify-content: space-between;
     align-items: center;
-    @include tablet{
+    @include tablet {
       width: 40%;
     }
 
@@ -143,6 +143,12 @@ img {
         @include tablet() {
           border: none;
         }
+      }
+    }
+    &__name {
+      &--active {
+        border-bottom: solid 4px white;
+        font-weight: 700;
       }
     }
   }
