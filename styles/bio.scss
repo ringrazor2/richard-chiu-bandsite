@@ -11,11 +11,14 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 30vh;
+  height: 60vw;
   width: 100vw;
   @include flex(row);
   align-items: center;
   opacity: 0.9;
+
+  // @include tablet {
+  // }
 
   &__title {
     color: white;
@@ -30,32 +33,76 @@
   height: 50vw;
   padding: 0 2rem;
   width: 100%;
+  @include global.tablet {
+    width: 85vw;
+    height: 40vw;
+  }
 }
 
 .musicians {
+  @include global.tablet {
+    @include flex(column);
+    justify-content: center;
+    align-items: center;
+  }
   &__title {
     font-size: 48px;
     padding: 2.5rem 2rem;
     font-weight: 600;
+    @include global.tablet {
+      align-self: flex-start;
+    }
   }
   p {
-    padding: 0 2rem;
-    font-size: 2rem;
+    @include global.tablet {
+      width: 85vw;
+      font-size: 1.3rem;
+    }
   }
   &__quote,
   &__author {
+    padding: 0 2rem;
+    font-size: 2rem;
     margin-top: 2rem;
     font-weight: 600;
     line-height: 3.125rem;
   }
+  &__quote {
+    @include global.tablet {
+      line-height: 2rem;
+    }
+    &__author {
+      @include global.tablet {
+        margin-top: 1rem;
+        font-size: 14px;
+      }
+    }
+  }
   &__band {
+    padding: 0 2rem;
+    font-size: 2rem;
     margin-top: 3.5rem;
     margin-bottom: 2rem;
     font-weight: 500;
   }
-  &__bio--cont {
-    margin-top: 2.75rem;
-    margin-bottom: 2.75rem;
+  // code for bio not registering on web / styles not applied
+  &__bio {
+    padding: 0 2rem;
+    font-size: 2rem;
+    @include global.tablet {
+      font-size: 16px;
+    }
+    &-container {
+      @include global.tablet {
+        @include flex(row);
+      }
+    }
+    &-cont {
+      padding: 0 2rem;
+      font-size: 2rem;
+      margin-top: 2.75rem;
+      margin-bottom: 2.75rem;
+    }
   }
 }
 
@@ -63,20 +110,34 @@
   padding: 0 2rem;
   background-color: variables.$alabaster;
   @include flex(column);
+  @include global.tablet {
+    padding-left: 4.5rem;
+  }
 
   &__title {
     font-size: 48px;
     padding: 2.5rem 0;
     font-weight: 600;
+    @include global.tablet {
+      font-size: 30px;
+    }
   }
   &__imgs {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    @include global.tablet {
+      @include flex(row);
+      // justify-content: center;
+    }
   }
   &__img {
     padding-bottom: 2.5rem;
     height: 30%;
     width: 100%;
+    @include global.tablet {
+      width: 30%;
+      margin-right: 15px;
+    }
   }
 }

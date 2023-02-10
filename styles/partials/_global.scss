@@ -30,7 +30,8 @@
 }
 @mixin flex($axis) {
   display: flex;
-  flex-flow: $axis wrap;
+  flex-direction: $axis;
+  flex-wrap: wrap;
 }
 @mixin title($fontSize, $color) {
   color: $color;
@@ -64,54 +65,60 @@ img {
   background-color: variables.$bandSiteBlack;
   @include flex(column);
   justify-content: center;
-  padding-top: 1rem;
-  // align-items: center;
+  padding-top: 2rem;
+  align-items: center;
+  // height: 20vw;
   width: 100vw;
-  @include tablet() {
+  @include tablet {
     @include flex(row);
     justify-content: flex-start;
     padding-left: 3rem;
-    height: 10vh;
+    padding-top: 1.5rem;
+    // padding-bottom: 3rem;
     align-items: center;
   }
 
+  h3 {
+    padding-bottom: 1rem;
+    @include tablet {
+      font-size: 14px;
+      padding-top: 0.75rem;
+      padding-bottom: 2.75rem;
+    }
+  }
   &__title {
-    @include title(1.5rem, white);
+    @include title(1.3rem, white);
     @include font("Avenir Next", 400);
     text-align: center;
     line-height: 2rem;
     letter-spacing: 2px;
-    padding-top: 1.5rem;
+    // padding-top: 1.5rem;
     font-size: 48px;
-    padding-bottom: 2rem;
-
-    &-container {
-      &__title-container {
-        margin: 2rem;
-      }
-      &-container {
-        @include tablet {
-          margin-right: 5rem;
-        }
-      }
+    // padding-bottom: 2rem;
+    @include tablet {
+      font-size: 28px;
+      padding-bottom: 1.5rem;
     }
   }
   &__links {
     @include flex(row);
     justify-content: space-between;
+    align-items: center;
+    @include tablet{
+      width: 40%;
+    }
 
     &-container {
       // padding: 0 4rem;
-      width: auto; //removing width makes it centered
-      height: 100%;
+      width: 100%; //removing width makes it centered
+      margin-top: 30px;
       @include tablet {
-        @include flex(row);
-        justify-content: center;
-        align-items: center;
-        border-bottom: solid 8px white;
+        margin-top: 0;
+        width: 70%;
       }
     }
   }
+
   &__link {
     @include title(24px, white);
     list-style: none;
@@ -127,8 +134,8 @@ img {
       width: 50%;
       @include flex(row);
       justify-content: center;
-      align-items: center;
-      padding-bottom: 10px;
+      align-items: flex-start;
+      // margin-bottom: 10px;
 
       &--active {
         border-bottom: solid 8px white;
@@ -150,9 +157,9 @@ img {
   }
 
   p {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     @include tablet {
-      font-size: 1.2rem;
+      font-size: 0.875rem;
     }
   }
   &__div-p {
@@ -168,7 +175,7 @@ img {
       justify-content: space-between;
       align-items: center;
       padding-top: 2.5rem;
-      padding-right: 5rem;
+      padding-right: 1rem;
     }
   }
 
@@ -176,7 +183,7 @@ img {
     @include title(3rem, white);
     font-weight: 600;
     @include tablet {
-      font-size: 3rem;
+      font-size: 2.25rem;
       // padding-left: 5rem;
     }
   }
@@ -206,7 +213,7 @@ img {
     }
     &__inner {
       @include tablet {
-        margin-right: 3.5rem;
+        margin-right: 2rem;
       }
     }
   }
@@ -219,7 +226,7 @@ img {
 .socials {
   @include flex(row);
   justify-content: space-between;
-  width: 50%;
+  width: 40%;
   margin: 0;
   padding: 2.4rem 0;
 
@@ -262,7 +269,7 @@ img {
     justify-self: flex-end;
     align-items: flex-end;
     display: inline-flex;
-    font-size: 2rem;
+    font-size: 1.5rem;
     // padding-top: 4rem;
   }
 }
