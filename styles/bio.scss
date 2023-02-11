@@ -17,14 +17,17 @@
   align-items: center;
   opacity: 0.9;
 
- 
-
   &__title {
     color: white;
     font-size: 42px;
     font-weight: 700;
     padding-left: 3rem;
     z-index: 10;
+    @include global.desktop {
+      font-size: 4rem;
+      font-weight: 600;
+      margin-left: 4rem;
+    }
   }
 }
 
@@ -33,8 +36,12 @@
   padding: 0 2rem;
   width: 100%;
   @include global.tablet {
-    width: 85vw;
-    height: 40vw;
+    height: 42vw;
+    padding: 0;
+  }
+  @include global.desktop {
+   width: 100%;
+   height: 38vw;
   }
 }
 
@@ -44,37 +51,69 @@
     justify-content: center;
     align-items: center;
   }
+  &__content{
+    @include global.desktop{
+      // width: 80%;
+    }
+  }
   &__title {
     font-size: 48px;
     padding: 2.5rem 2rem;
     font-weight: 600;
     @include global.tablet {
       align-self: flex-start;
+      margin-left: 1rem;
+      font-size: 40px;
+    }
+    @include global.desktop {
+      padding-left: 8rem;
+      font-size: 2.4rem;
+    }
+  }
+  &__main {
+    @include global.tablet {
+      padding: 0 5rem;
+    }
+    @include global.desktop{
+     padding: 0 12rem;
     }
   }
   &__quote,
   &__author {
     padding: 0 2rem;
-    font-size: 2rem;
     margin-top: 2rem;
     font-weight: 600;
     line-height: 3.125rem;
     @include global.tablet {
-      font-size: 1.3rem;
-      width: 85vw;
+      font-size: 1.4rem;
+      padding: 0;
     }
+    // @include global.desktop {
+    
+    // }
   }
   &__quote {
+    font-size: 1.8rem;
     @include global.tablet {
       line-height: 2rem;
     }
-    &__author {
-      @include global.tablet {
-        margin-top: 1rem;
-        font-size: 14px;
-      }
+    @include global.desktop {
+      font-size: 24px;
+      font-weight: 500;
+      align-self: flex-start;
     }
   }
+  &__author {
+    font-size: 2.1rem;
+    @include global.tablet {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+    @include global.desktop {
+      font-weight: 500;
+    }
+  }
+
   &__band {
     padding: 0 2rem;
     font-size: 2rem;
@@ -84,30 +123,39 @@
     @include global.tablet {
       font-weight: 600;
       align-self: flex-start;
-      width: 85vw;
-      padding: 0 6rem;
+      padding: 0;
+      font-size: 1.75rem;
     }
   }
-  // code for bio not registering on web / styles not applied
   &__bio {
     padding: 0 2rem;
-    font-size: 2rem;
+    font-size: 1.85rem;
+    line-height: 42px;
     @include global.tablet {
-      font-size: 18px;
-      width: 42vw;
+      font-size: 14px;
+      width: 45%;
+      padding: 0;
+      line-height: 24px;
+    }
+    @include global.desktop {
+      line-height: 26px;
+    }
+    &-main {
+      margin-bottom: 2rem;
     }
     &-container {
       @include global.tablet {
         @include flex(row);
-        width: 85vw;
+       
       }
     }
     &-cont {
-      padding: 0 2rem;
+      padding-left: 2rem;
       margin-top: 2.75rem;
       margin-bottom: 2.75rem;
       @include global.tablet {
         margin: 0;
+        width: 52%;
       }
     }
   }
@@ -118,33 +166,44 @@
   background-color: variables.$alabaster;
   @include flex(column);
   @include global.tablet {
-    padding-left: 4.5rem;
+    padding: 0 2rem 2rem 2rem;
   }
 
   &__title {
     font-size: 48px;
-    padding: 2.5rem 0;
     font-weight: 600;
+    padding-bottom: 2rem;
     @include global.tablet {
       font-size: 30px;
+      margin: 1rem 0;
+    }
+    @include global.desktop{
+      margin-left: 2rem;
     }
   }
   &__imgs {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     @include global.tablet {
       @include flex(row);
-      // justify-content: center;
+      gap: 1rem;
+    }
+    @include global.desktop{
+      gap: 2rem;
     }
   }
   &__img {
-    padding-bottom: 2.5rem;
+    margin-bottom: 2rem;
     height: 30%;
     width: 100%;
     @include global.tablet {
-      width: 30%;
-      margin-right: 15px;
+      width: 31%;
+      padding: 0;
+    }
+    @include global.desktop{
+      width: 27%;
     }
   }
 }
