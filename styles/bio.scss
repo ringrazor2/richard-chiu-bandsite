@@ -15,11 +15,18 @@
   width: 100vw;
   @include flex(row);
   align-items: center;
-  opacity: 0.9;
+  z-index: 10;
+
+  &__overlay {
+    height: 60vw;
+    width: 100vw;
+    opacity: 0.5;
+    position: absolute;
+  }
 
   &__title {
     color: white;
-    font-size: 42px;
+    font-size: 2.625rem;
     font-weight: 700;
     padding-left: 3rem;
     z-index: 10;
@@ -31,39 +38,21 @@
   }
 }
 
-.bandimg {
-  height: 50vw;
-  padding: 0 2rem;
-  width: 100%;
-  @include global.tablet {
-    height: 42vw;
-    padding: 0;
-  }
-  @include global.desktop {
-   width: 100%;
-   height: 38vw;
-  }
-}
-
 .musicians {
   @include global.tablet {
     @include flex(column);
     justify-content: center;
     align-items: center;
   }
-  &__content{
-    @include global.desktop{
-      // width: 80%;
-    }
-  }
+
   &__title {
-    font-size: 48px;
+    font-size: 3rem;
     padding: 2.5rem 2rem;
     font-weight: 600;
     @include global.tablet {
       align-self: flex-start;
       margin-left: 1rem;
-      font-size: 40px;
+      font-size: 2.5rem;
     }
     @include global.desktop {
       padding-left: 8rem;
@@ -74,8 +63,21 @@
     @include global.tablet {
       padding: 0 5rem;
     }
-    @include global.desktop{
-     padding: 0 12rem;
+    @include global.desktop {
+      padding: 0 12rem;
+    }
+  }
+  &__img {
+    height: 50vw;
+    padding: 0 2rem;
+    width: 100%;
+    @include global.tablet {
+      height: 42vw;
+      padding: 0;
+    }
+    @include global.desktop {
+      width: 100%;
+      height: 38vw;
     }
   }
   &__quote,
@@ -88,9 +90,6 @@
       font-size: 1.4rem;
       padding: 0;
     }
-    // @include global.desktop {
-    
-    // }
   }
   &__quote {
     font-size: 1.8rem;
@@ -98,7 +97,7 @@
       line-height: 2rem;
     }
     @include global.desktop {
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 500;
       align-self: flex-start;
     }
@@ -130,15 +129,15 @@
   &__bio {
     padding: 0 2rem;
     font-size: 1.85rem;
-    line-height: 42px;
+    line-height: 2.625rem;
     @include global.tablet {
-      font-size: 14px;
+      font-size: 0.875rem;
       width: 45%;
       padding: 0;
-      line-height: 24px;
+      line-height: 1.5rem;
     }
     @include global.desktop {
-      line-height: 26px;
+      line-height: 1.625rem;
     }
     &-main {
       margin-bottom: 2rem;
@@ -146,7 +145,6 @@
     &-container {
       @include global.tablet {
         @include flex(row);
-       
       }
     }
     &-cont {
@@ -170,14 +168,14 @@
   }
 
   &__title {
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 600;
     padding-bottom: 2rem;
     @include global.tablet {
-      font-size: 30px;
+      font-size: 1.875rem;
       margin: 1rem 0;
     }
-    @include global.desktop{
+    @include global.desktop {
       margin-left: 2rem;
     }
   }
@@ -190,7 +188,7 @@
       @include flex(row);
       gap: 1rem;
     }
-    @include global.desktop{
+    @include global.desktop {
       gap: 2rem;
     }
   }
@@ -202,7 +200,7 @@
       width: 31%;
       padding: 0;
     }
-    @include global.desktop{
+    @include global.desktop {
       width: 27%;
     }
   }
