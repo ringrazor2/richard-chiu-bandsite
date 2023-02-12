@@ -82,7 +82,7 @@ img {
   h3 {
     padding-bottom: 1rem;
     @include tablet {
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-top: 0.75rem;
       padding-bottom: 2rem;
     }
@@ -90,7 +90,7 @@ img {
   &__logo {
     height: 1.5rem;
     @include tablet {
-      font-size: 3rem;
+      height: 3rem;
       padding-bottom: 1.5rem;
     }
   }
@@ -99,7 +99,7 @@ img {
     justify-content: space-between;
     align-items: center;
     @include tablet {
-      width: 40%;
+      width: 45%;
       margin-left: 2rem;
     }
     @include desktop {
@@ -157,8 +157,7 @@ img {
   padding: 2rem 0 1.5rem 1.7rem;
   color: white;
   @include tablet {
-    padding-top: 2rem;
-    padding-left: 3.5rem;
+    padding: 2rem 0 3rem 3.5rem;
   }
   @include desktop {
     padding-left: 10rem;
@@ -179,7 +178,7 @@ img {
 
     @include tablet {
       width: 33vw;
-      max-width: 25%;
+      max-width: 30%;
       margin: 0;
       margin-left: 3rem;
       padding: 0;
@@ -201,10 +200,11 @@ img {
   &__div-p {
     margin-top: 1.4rem;
     @include tablet {
-      margin-top: 4rem;
+      margin-top: 2.5rem;
     }
     @include desktop {
       margin-right: 3rem;
+      margin-top: 4rem;
     }
   }
 
@@ -267,6 +267,7 @@ img {
     display: none;
     @include tablet {
       display: block;
+      margin-right: 1.5rem;
     }
     @include desktop {
       margin-right: 6rem;
