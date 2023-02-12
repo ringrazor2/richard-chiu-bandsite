@@ -1,5 +1,7 @@
 @use "variables";
 
+// Decided to leave font-face and mixins in global folder since they are used globally
+// If project gets bigger may move to separate partials
 @font-face {
   font-family: "Avenir Next";
   src: url("../../assets/Font/AvenirNextLTPro-Regular.otf") format("woff2");
@@ -78,7 +80,9 @@ img {
   @include desktop {
     padding-left: 8rem;
   }
-
+  a:not(.nav__log-link) {
+    padding-bottom: 2rem;
+  }
   h3 {
     padding-bottom: 1rem;
     @include tablet {
@@ -90,8 +94,8 @@ img {
   &__logo {
     height: 1.5rem;
     @include tablet {
-      height: 3rem;
-      padding-bottom: 1.5rem;
+      height: 2rem;
+      margin-bottom: 1.5rem;
     }
   }
   &__links {
@@ -275,12 +279,3 @@ img {
   }
 }
 
-.bandsite-tablet {
-  @include title(2.5rem, white);
-  @include tablet {
-    justify-self: flex-end;
-    align-items: flex-end;
-    display: inline-flex;
-    font-size: 1.5rem;
-  }
-}
