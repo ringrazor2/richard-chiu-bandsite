@@ -88,8 +88,9 @@ img {
     }
   }
   &__logo {
-    height: 3rem;
+    height: 1.5rem;
     @include tablet {
+      font-size: 3rem;
       padding-bottom: 1.5rem;
     }
   }
@@ -107,7 +108,7 @@ img {
 
     &-container {
       width: 100%;
-      margin-top: 30px;
+      margin-top: 1.3rem;
       @include tablet {
         margin-top: 0;
         width: 70%;
@@ -116,7 +117,7 @@ img {
   }
 
   &__link {
-    @include title(1.5rem, variables.$silver);
+    @include title(1rem, variables.$silver);
     list-style: none;
     @include flex(row);
     @include tablet {
@@ -125,6 +126,7 @@ img {
 
     &--active {
       font-family: 700;
+      color: white;
     }
     &-container {
       width: 50%;
@@ -133,7 +135,7 @@ img {
       align-items: flex-start;
       color: variables.$mercury;
       &--active {
-        border-bottom: solid 0.5rem white;
+        border-bottom: solid 0.3rem white;
         @include tablet {
           border: none;
         }
@@ -152,7 +154,7 @@ img {
 }
 .footer {
   background-color: variables.$bandSiteBlack;
-  padding: 3rem 2rem 2rem 2rem;
+  padding: 2rem 0 1.5rem 1.7rem;
   color: white;
   @include tablet {
     padding-top: 2rem;
@@ -163,7 +165,7 @@ img {
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 0.75rem;
     @include tablet {
       font-size: 0.875rem;
     }
@@ -171,10 +173,10 @@ img {
   &__socials {
     @include flex(row);
     justify-content: space-between;
-    width: 40%;
+    width: 50%;
     margin: 0;
-    margin: 2.4rem 0 1.7rem 0;
-  
+    margin-top: 1.4rem;
+
     @include tablet {
       width: 33vw;
       max-width: 25%;
@@ -188,16 +190,16 @@ img {
     @include desktop {
       margin-left: 4rem;
     }
-  
+
     &__img {
-      height: 3rem;
+      height: 1.65rem;
       @include tablet {
         height: 2rem;
       }
     }
   }
   &__div-p {
-    margin-top: 2.4rem;
+    margin-top: 1.4rem;
     @include tablet {
       margin-top: 4rem;
     }
@@ -217,7 +219,7 @@ img {
   }
 
   &__title {
-    @include title(3rem, white);
+    @include title(1.75rem, white);
     font-weight: 600;
     @include tablet {
       font-size: 2.25rem;
@@ -225,7 +227,7 @@ img {
   }
   &__copyright {
     padding-top: 3.5rem;
-    padding-bottom: 2rem;
+    padding-bottom: 0rem;
   }
   &__social-container {
     padding: 0;
@@ -236,7 +238,7 @@ img {
       justify-content: flex-start;
     }
   }
-  
+
   &__contacts-tablet {
     @include tablet {
       @include flex(row);
@@ -253,8 +255,8 @@ img {
     }
   }
   &__logo {
-    margin-bottom: 2rem;
-    height: 3rem;
+    margin-bottom: 1rem;
+    height: 1.5rem;
     @include tablet {
       display: none;
     }
