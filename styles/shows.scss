@@ -1,0 +1,70 @@
+@use "../styles/partials/variables";
+@use "../styles/partials/global";
+
+@mixin flex($axis) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $axis;
+}
+.hero {
+  background-image: url("../assets/Images/hero-shows.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70vw;
+  width: 100vw;
+  @include flex(row);
+  align-items: center;
+  position: relative;
+  @include global.desktop {
+    height: 50vw;
+  }
+  &__content {
+    @include flex(column);
+    justify-content: space-around;
+    padding: 0.75rem;
+    width: 100%;
+  }
+  &__overlay {
+    height: 70vw;
+    width: 100vw;
+    position: absolute;
+    color: #000;
+    background-color: rgba(79, 69, 69, 0.4);
+    z-index: 1;
+    @include global.desktop {
+      height: 50vw;
+    }
+  }
+
+  &__title {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    // padding-left: 1rem;
+    z-index: 2;
+    @include global.tablet {
+      font-size: 3.7rem;
+      padding-left: 2.5rem;
+      font-weight: 600;
+    }
+    @include global.desktop {
+      font-size: 4rem;
+      font-weight: 600;
+      margin-left: 4rem;
+      margin-bottom: 2rem;
+    }
+  }
+  &__album {
+    color: white;
+    z-index: 2;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+  &__soundcloud {
+    align-self: center;
+    height: 30vw;
+    width: 100%;
+    margin-top: 10px;
+  }
+}

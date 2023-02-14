@@ -225,3 +225,101 @@
     }
   }
 }
+.comments {
+  padding: 1.5rem;
+  @include flex(column);
+  &__title,
+  &__article__form-name-container,
+  &__article__form-text-container {
+    margin-bottom: 15px;
+  }
+  &__title {
+    color: variables.$bandSiteBlack;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  &__main {
+    @include flex(row);
+  }
+  &__article {
+    &__form {
+      @include flex(row);
+      align-items: center;
+      width: 80%;
+      &:active {
+        color: black;
+        border-color: black;
+      }
+      &-name,
+      &-text {
+        @include flex(column);
+        justify-content: space-evenly;
+        min-height: 2.25rem;
+
+        &__input {
+          padding: 0.75rem;
+          border-radius: 0.25rem;
+          border: solid 1px variables.$mercury;
+          width: 100%;
+        }
+        &__input::active {
+          color: black;
+          border-color: black;
+        }
+        &__label {
+          color: variables.$silver;
+          font-weight: 500;
+          margin-bottom: 10px;
+          font-size: 0.9rem;
+        }
+      }
+      &-text__input {
+        height: 60px;
+        border-radius: 0.25rem;
+        border: solid 1px variables.$mercury;
+        margin-bottom: 40px;
+      }
+      &-text_input:active {
+        border-color: black;
+        color: black;
+      }
+      &-name-container,
+      &-text-container {
+        width: 100%;
+      }
+    }
+    &__icon {
+      display: inline-block;
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 50%;
+
+      &-container {
+        display: inline-block;
+        margin-top: 1.8rem;
+        width: 20%;
+      }
+    }
+  }
+}
+.input__comment {
+  color: variables.$silver;
+  font-weight: 500;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.input__comment:active {
+  color: black;
+  border-color: black;
+}
+.comment-button {
+  background-color: variables.$bandSiteBlack;
+  color: white;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+}
