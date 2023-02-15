@@ -24,7 +24,7 @@
     width: 100vw;
     position: absolute;
     color: #000;
-    background-color: rgba(79, 69, 69, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
     @include global.desktop {
       height: 50vw;
@@ -226,7 +226,7 @@
   }
 }
 .comments {
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
   @include flex(column);
   &__title,
   &__article__form-name-container,
@@ -245,11 +245,8 @@
     &__form {
       @include flex(row);
       align-items: center;
-      width: 80%;
-      &:active {
-        color: black;
-        border-color: black;
-      }
+      width: 76%;
+
       &-name,
       &-text {
         @include flex(column);
@@ -278,6 +275,11 @@
         border-radius: 0.25rem;
         border: solid 1px variables.$mercury;
         margin-bottom: 40px;
+
+        &:active {
+          color: black;
+          border-color: black;
+        }
       }
       &-text_input:active {
         border-color: black;
@@ -295,8 +297,10 @@
       border-radius: 50%;
 
       &-container {
-        display: inline-block;
+        @include global.flex(row);
+        justify-content: flex-end;
         margin-top: 1.8rem;
+        margin-right: 10px;
         width: 20%;
       }
     }
@@ -322,4 +326,52 @@
   border-radius: 0.25rem;
   border: none;
   cursor: pointer;
+
+  &:hover{
+    background-color: black;
+  }
+}
+
+.poster {
+  @include flex(row);
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  border-top: 1px solid variables.$mercury;
+  padding: 1.5rem;
+
+  &__icon {
+    &-container {
+      margin-right: 20px;
+    }
+    &__avatar-default {
+      background-color: variables.$mercury;
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 50%;
+    }
+  }
+  &__main-container {
+    width: 90%;
+  }
+  &__name {
+    font-weight: 600;
+    font-size: 14px;
+    &-date-container {
+      @include flex(row);
+      justify-content: space-between;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
+  &__date {
+    color: variables.$mercury;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  &__comment {
+    font-size: 14px;
+    &-container {
+      margin-bottom: 10px;
+    }
+  }
 }

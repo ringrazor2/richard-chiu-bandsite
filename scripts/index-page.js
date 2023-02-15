@@ -1,4 +1,16 @@
-let defaultComments = [
+// Grabbing elements needed for script
+const body = document.querySelector("body");
+const footer = document.querySelector(".footer");
+const commentButton = document.querySelector(".comment-button");
+const commentForm = document.querySelector(
+    ".comments__article__form-name-container"
+  );
+
+// need this for new data
+const bandComments = [];
+
+// storing default data
+const defaultComments = [
   {
     name: "Connor Walton",
     date: "02/17/2021",
@@ -13,12 +25,121 @@ let defaultComments = [
   },
   {
     name: "Miles Acosta",
-    date: 12 / 20 / 2020,
+    date: "12/ 20/2020",
     comment:
       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
   },
 ];
 
-function displayComment(commentData){
-    
+// generate comment DOM element
+function createCommentElement(comment) {
+  const article = document.createElement("article");
+  article.classList.add("poster");
+
+  const posterIconContainer = document.createElement("div");
+  posterIconContainer.classList.add("poster__icon-container");
+
+  const posterIconAvatar = document.createElement("div");
+  posterIconAvatar.classList.add("poster__icon__avatar-default");
+
+  const posterMainContainer = document.createElement("div");
+  posterMainContainer.classList.add("poster__main-container");
+
+  const posterNameDateContainer = document.createElement("div");
+  posterNameDateContainer.classList.add("poster__name-date-container");
+
+  const posterName = document.createElement("h4");
+  posterName.classList.add("poster__name");
+  posterName.textContent = comment.name;
+
+  const posterDate = document.createElement("h4");
+  posterDate.classList.add("poster__date");
+  posterDate.textContent = comment.date;
+
+  const posterCommentContainer = document.createElement("div");
+  posterCommentContainer.classList.add("poster__comment-container");
+
+  const posterComment = document.createElement("p");
+  posterComment.classList.add("poster__comment");
+  posterComment.textContent = comment.comment;
+
+  article.append(posterIconContainer);
+  posterIconContainer.append(posterIconAvatar);
+  article.append(posterMainContainer);
+  posterMainContainer.append(posterNameDateContainer);
+  posterNameDateContainer.append(posterName);
+  posterNameDateContainer.append(posterDate);
+  posterMainContainer.append(posterCommentContainer);
+  posterCommentContainer.append(posterComment);
+
+  return article;
 }
+// Function for rendering comment on page 
+function displayComment(commentData) {
+  const newCommentElement = createCommentElement(commentData);
+  // Need to select where we want to insert new element before/after
+  const existingCommentElement = document.querySelector(".poster");
+  body.insertBefore(newCommentElement, existingCommentElement);
+}
+
+// Adding user data to array 
+function commentPush() {
+  // Getting user data
+  const userCommentName = document.querySelector(
+    ".comments__article__form-name__input"
+  );
+  const userName = userCommentName.value;
+
+  const userCommentInput = document.querySelector(
+    ".comments__article__form-text__input"
+  );
+  const userComment = userCommentInput.value;
+
+  // Error handing - might change alert to better visual error if time permits
+  if (!userName || !userComment || userName === "" || userComment === "") {
+    alert("Please enter your name and comment");
+    return;
+  }
+  // Organizing user data into an object
+  const newComment = {
+    name: userName,
+    date: new Date().toLocaleDateString(),
+    comment: userComment,
+  };
+
+  // Pushing new user data to the front of the array list
+  bandComments.unshift(newComment);
+}
+
+// Clear form inputs function
+function clearFormInputs() {
+  const userCommentName = document.querySelector(
+    ".comments__article__form-name__input"
+  );
+  const userCommentInput = document.querySelector(
+    ".comments__article__form-text__input"
+  );
+  userCommentName.value = "";
+  userCommentInput.value = "";
+}
+
+// Event listener for adding a comment
+function eventCommentGeneration(e) {
+  e.preventDefault();
+  commentPush();
+  displayComment(bandComments[0]);
+  clearFormInputs();
+}
+
+// Add default comments to page
+function addDefaultCommentsToPage() {
+  defaultComments.forEach((commentData) => {
+    const defaultCommentElement = createCommentElement(commentData);
+    body.insertBefore(defaultCommentElement, footer);
+  });
+}
+addDefaultCommentsToPage();
+
+// calling the functions for each specified event needed 
+commentButton.addEventListener("click", eventCommentGeneration);
+commentForm.addEventListener("submit", eventCommentGeneration);

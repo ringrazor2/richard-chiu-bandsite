@@ -30,13 +30,12 @@
     width: 100vw;
     position: absolute;
     color: #000;
-    background-color: rgba(79, 69, 69, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
     @include global.desktop {
       height: 50vw;
     }
   }
-
   &__title {
     color: white;
     font-size: 1.4rem;
@@ -66,5 +65,47 @@
     height: 30vw;
     width: 100%;
     margin-top: 10px;
+    border-radius: 4px;
+    z-index: 2;
+  }
+}
+
+.shows {
+  padding: 2rem 1.5rem 1rem 1.5rem;
+
+  &__title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+  &__information-container {
+    margin-top: 1rem;
+  }
+
+  &__details {
+    color: variables.$silver;
+    font-weight: 600;
+    margin-bottom: 0.625rem;
+  }
+  &__info {
+    &--date {
+      font-weight: 600;
+    }
+  }
+  &__button {
+    background-color: variables.$bandSiteBlack;
+    color: white;
+    height: 2.5rem;
+    width: 100%;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin: 2rem 0;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
   }
 }
