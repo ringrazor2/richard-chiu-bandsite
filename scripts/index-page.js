@@ -2,9 +2,7 @@
 const body = document.querySelector("body");
 const footer = document.querySelector(".footer");
 const commentButton = document.querySelector(".comment-button");
-const commentForm = document.querySelector(
-    ".comments__article__form-name-container"
-  );
+const commentForm = document.querySelector(".comments__article__form");
 
 // need this for new data
 const bandComments = [];
@@ -74,7 +72,7 @@ function createCommentElement(comment) {
 
   return article;
 }
-// Function for rendering comment on page 
+// Function for rendering comment on page
 function displayComment(commentData) {
   const newCommentElement = createCommentElement(commentData);
   // Need to select where we want to insert new element before/after
@@ -82,7 +80,7 @@ function displayComment(commentData) {
   body.insertBefore(newCommentElement, existingCommentElement);
 }
 
-// Adding user data to array 
+// Adding user data to array
 function commentPush() {
   // Getting user data
   const userCommentName = document.querySelector(
@@ -93,12 +91,29 @@ function commentPush() {
   const userCommentInput = document.querySelector(
     ".comments__article__form-text__input"
   );
+
   const userComment = userCommentInput.value;
 
   // Error handing - might change alert to better visual error if time permits
-  if (!userName || !userComment || userName === "" || userComment === "") {
-    alert("Please enter your name and comment");
+  if (userName === "" && userComment === "") {
+    userCommentName.classList.add("error");
+    userCommentInput.classList.add("error");
     return;
+  } else if (!userName && !userComment) {
+    userCommentName.classList.add("error");
+    userCommentInput.classList.add("error");
+    return;
+  } else if (userName === "") {
+    userCommentName.classList.add("error");
+    userCommentInput.classList.remove("error");
+    return;
+  } else if (userComment === "") {
+    userCommentInput.classList.add("error");
+    userCommentName.classList.remove("error");
+    return;
+  } else {
+    userCommentName.classList.remove("error");
+    userCommentInput.classList.remove("error");
   }
   // Organizing user data into an object
   const newComment = {
@@ -140,6 +155,6 @@ function addDefaultCommentsToPage() {
 }
 addDefaultCommentsToPage();
 
-// calling the functions for each specified event needed 
-commentButton.addEventListener("click", eventCommentGeneration);
+// calling the function to render a comment when form is submitted
+// commentButton.addEventListener("click", eventCommentGeneration);
 commentForm.addEventListener("submit", eventCommentGeneration);

@@ -229,8 +229,7 @@
   padding: 1.5rem 1.5rem 0 1.5rem;
   @include flex(column);
   &__title,
-  &__article__form-name-container,
-  &__article__form-text-container {
+  &__article__form-container {
     margin-bottom: 15px;
   }
   &__title {
@@ -258,16 +257,26 @@
           border-radius: 0.25rem;
           border: solid 1px variables.$mercury;
           width: 100%;
+
+          &:focus {
+            outline: none;
+            color: black;
+            border-color: black;
+          }
         }
-        &__input::active {
-          color: black;
-          border-color: black;
-        }
+       
         &__label {
           color: variables.$silver;
           font-weight: 500;
           margin-bottom: 10px;
+          margin-top: 20px;
           font-size: 0.9rem;
+        }
+      }
+
+      &-name {
+        &__input {
+          margin-bottom: 20px;
         }
       }
       &-text__input {
@@ -276,14 +285,10 @@
         border: solid 1px variables.$mercury;
         margin-bottom: 40px;
 
-        &:active {
-          color: black;
-          border-color: black;
-        }
-      }
-      &-text_input:active {
-        border-color: black;
-        color: black;
+        // &:active {
+        //   color: black;
+        //   border-color: black;
+        // }
       }
       &-name-container,
       &-text-container {
@@ -314,7 +319,7 @@
   font-size: 0.9rem;
 }
 
-.input__comment:active {
+.input__comment:focus {
   color: black;
   border-color: black;
 }
@@ -327,7 +332,7 @@
   border: none;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background-color: black;
   }
 }
@@ -375,3 +380,6 @@
     }
   }
 }
+ .error{
+  border-color: variables.$error;
+ }

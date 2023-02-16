@@ -596,7 +596,7 @@ img {
   flex-direction: column;
   flex-wrap: wrap;
 }
-.comments__title, .comments__article__form-name-container, .comments__article__form-text-container {
+.comments__title, .comments__article__form-container {
   margin-bottom: 15px;
 }
 .comments__title {
@@ -629,7 +629,8 @@ img {
   border: solid 1px #e1e1e1;
   width: 100%;
 }
-.comments__article__form-name__input::active, .comments__article__form-text__input::active {
+.comments__article__form-name__input:focus, .comments__article__form-text__input:focus {
+  outline: none;
   color: black;
   border-color: black;
 }
@@ -637,21 +638,17 @@ img {
   color: #afafaf;
   font-weight: 500;
   margin-bottom: 10px;
+  margin-top: 20px;
   font-size: 0.9rem;
+}
+.comments__article__form-name__input {
+  margin-bottom: 20px;
 }
 .comments__article__form-text__input {
   height: 60px;
   border-radius: 0.25rem;
   border: solid 1px #e1e1e1;
   margin-bottom: 40px;
-}
-.comments__article__form-text__input:active {
-  color: black;
-  border-color: black;
-}
-.comments__article__form-text_input:active {
-  border-color: black;
-  color: black;
 }
 .comments__article__form-name-container, .comments__article__form-text-container {
   width: 100%;
@@ -680,7 +677,7 @@ img {
   font-size: 0.9rem;
 }
 
-.input__comment:active {
+.input__comment:focus {
   color: black;
   border-color: black;
 }
@@ -741,4 +738,8 @@ img {
 }
 .poster__comment-container {
   margin-bottom: 10px;
+}
+
+.error {
+  border-color: #D22E2D;
 }/*# sourceMappingURL=bio.css.map */

@@ -388,7 +388,8 @@ img {
 }
 
 .shows {
-  padding: 2rem 1.5rem 1rem 1.5rem;
+  margin: 2rem 1.5rem 1rem 1.5rem;
+  border-bottom: 1px solid #e1e1e1;
 }
 .shows__title {
   font-weight: 600;
@@ -402,6 +403,9 @@ img {
   color: #afafaf;
   font-weight: 600;
   margin-bottom: 0.625rem;
+}
+.shows__info {
+  margin-bottom: 2rem;
 }
 .shows__info--date {
   font-weight: 600;
@@ -421,4 +425,7 @@ img {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+.shows__divider {
+  color: #e1e1e1;
 }/*# sourceMappingURL=shows.css.map */
