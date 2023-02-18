@@ -75,7 +75,6 @@ img {
   .nav h3 {
     font-size: 1.1rem;
     margin-top: 0.75rem;
-    padding-bottom: 2rem;
   }
 }
 .nav__logo {
@@ -328,6 +327,7 @@ img {
 @media screen and (min-width: 80rem) {
   .hero {
     height: 50vw;
+    justify-content: center;
   }
 }
 .hero__content {
@@ -337,6 +337,17 @@ img {
   justify-content: space-around;
   padding: 0.75rem;
   width: 100%;
+}
+@media screen and (min-width: 80rem) {
+  .hero__content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    align-items: center;
+    margin: 0;
+    width: 89%;
+  }
 }
 .hero__overlay {
   height: 70vw;
@@ -351,25 +362,28 @@ img {
     height: 50vw;
   }
 }
+.hero__text {
+  z-index: 2;
+}
+@media screen and (min-width: 80rem) {
+  .hero__text {
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    margin-bottom: 5.2rem;
+  }
+}
 .hero__title {
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
   z-index: 2;
 }
 @media screen and (min-width: 48rem) {
   .hero__title {
-    font-size: 3.7rem;
+    font-size: 3.4rem;
     padding-left: 2.5rem;
     font-weight: 600;
-  }
-}
-@media screen and (min-width: 80rem) {
-  .hero__title {
-    font-size: 4rem;
-    font-weight: 600;
-    margin-left: 4rem;
-    margin-bottom: 2rem;
   }
 }
 .hero__album {
@@ -378,13 +392,56 @@ img {
   font-size: 0.8rem;
   margin-bottom: 10px;
 }
+@media screen and (min-width: 48rem) {
+  .hero__album {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    padding-left: 2.5rem;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .hero__album {
+    margin-bottom: 1rem;
+  }
+}
 .hero__soundcloud {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   align-self: center;
   height: 30vw;
   width: 100%;
-  margin-top: 10px;
-  border-radius: 4px;
+  margin-top: 2rem;
   z-index: 2;
+}
+@media screen and (min-width: 48rem) {
+  .hero__soundcloud {
+    padding-left: 2.5rem;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .hero__soundcloud {
+    width: auto;
+  }
+}
+.hero__iframe {
+  height: 100%;
+  border-radius: 4px;
+  width: 90vw;
+}
+@media screen and (min-width: 48rem) {
+  .hero__iframe {
+    width: 60vw;
+    height: 75%;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .hero__iframe {
+    width: 32vw;
+    height: 35%;
+  }
 }
 
 .shows {
@@ -396,6 +453,7 @@ img {
     display: flex;
     flex-flow: wrap column;
     padding: 2rem;
+    padding-top: 3.5rem;
   }
 }
 @media screen and (min-width: 80rem) {
@@ -410,6 +468,7 @@ img {
   .shows__desktop-div {
     width: 70%;
     margin-right: 4rem;
+    margin-top: 4rem;
   }
 }
 .shows__main {
@@ -438,6 +497,12 @@ img {
   margin-bottom: 1rem;
   font-size: 1.4rem;
 }
+@media screen and (min-width: 48rem) {
+  .shows__title {
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
+}
 @media screen and (min-width: 80rem) {
   .shows__title {
     font-size: 2.5rem;
@@ -453,6 +518,11 @@ img {
     display: flex;
     flex-flow: wrap column;
     margin: 0;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .shows__information-container {
+    margin-bottom: 1rem;
   }
 }
 .shows__details {
@@ -476,7 +546,7 @@ img {
   }
 }
 .shows__info {
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
 }
 @media screen and (min-width: 48rem) {
   .shows__info {
@@ -512,7 +582,7 @@ img {
     width: auto;
     margin: 0;
     font-size: 1.2rem;
-    padding: 1.5rem 2.1rem;
+    padding: 1.5rem 1.8rem;
     align-self: center;
   }
 }

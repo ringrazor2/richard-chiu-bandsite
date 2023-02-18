@@ -125,8 +125,9 @@ const showsMainAll = document.querySelectorAll(".shows__main");
 const showsMain = document.querySelector(".shows__main");
 
 // applying active class to shows section also add new div to flex for desktop
-const showsDesktop = document.querySelector(".shows__desktop-div");
+const showsDesktop = document.createElement("div");
 showsDesktop.classList.add("shows__desktop-div");
+shows.append(showsDesktop);
 
 showsMainAll.forEach((showsMain) => {
   showsMain.addEventListener("click", () => {

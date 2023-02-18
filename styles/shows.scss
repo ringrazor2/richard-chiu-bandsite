@@ -18,12 +18,22 @@
   position: relative;
   @include global.desktop {
     height: 50vw;
+    justify-content: center;
   }
   &__content {
     @include flex(column);
     justify-content: space-around;
     padding: 0.75rem;
     width: 100%;
+    @include global.desktop {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 4rem;
+      align-items: center;
+      margin: 0;
+      width: 89%;
+    }
   }
   &__overlay {
     height: 70vw;
@@ -36,22 +46,31 @@
       height: 50vw;
     }
   }
+  &__text {
+    z-index: 2;
+    @include global.desktop {
+      display: flex;
+      flex-flow: wrap column;
+      justify-content: center;
+      margin-bottom: 5.2rem;
+    }
+  }
   &__title {
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
     // padding-left: 1rem;
     z-index: 2;
     @include global.tablet {
-      font-size: 3.7rem;
+      font-size: 3.4rem;
       padding-left: 2.5rem;
       font-weight: 600;
     }
     @include global.desktop {
-      font-size: 4rem;
-      font-weight: 600;
-      margin-left: 4rem;
-      margin-bottom: 2rem;
+      // font-size: 4rem;
+      // font-weight: 600;
+      // margin-left: 4rem;
+      // margin-bottom: 2rem;
     }
   }
   &__album {
@@ -59,14 +78,46 @@
     z-index: 2;
     font-size: 0.8rem;
     margin-bottom: 10px;
+    @include global.tablet {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      padding-left: 2.5rem;
+    }
+    @include global.desktop{
+      margin-bottom: 1rem;
+    }
   }
   &__soundcloud {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-self: center;
     height: 30vw;
     width: 100%;
-    margin-top: 10px;
-    border-radius: 4px;
+    margin-top: 2rem;
     z-index: 2;
+
+    @include global.tablet {
+      padding-left: 2.5rem;
+      justify-content: flex-start;
+      margin-top: 0.5rem;
+    }
+    @include global.desktop {
+      width: auto;
+    }
+  }
+  &__iframe {
+    height: 100%;
+    border-radius: 4px;
+    width: 90vw;
+    @include global.tablet {
+      width: 60vw;
+      height: 75%;
+    }
+    @include global.desktop {
+      width: 32vw;
+      height: 35%;
+    }
   }
 }
 
@@ -79,18 +130,20 @@
     flex-flow: wrap column;
     // align-items: center;
     padding: 2rem;
+    padding-top: 3.5rem;
   }
-  @include global.desktop{
+  @include global.desktop {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
   }
 
-  &__desktop-div{
-    @include global.desktop{
+  &__desktop-div {
+    @include global.desktop {
       width: 70%;
       margin-right: 4rem;
+      margin-top: 4rem;
     }
   }
   &__main {
@@ -101,6 +154,8 @@
       justify-content: space-between;
       border-bottom: solid 1px variables.$mercury;
       margin: 1rem;
+    }
+    @include global.desktop{
     }
     &:hover {
       background-color: variables.$alabaster;
@@ -118,7 +173,11 @@
     font-weight: 600;
     margin-bottom: 1rem;
     font-size: 1.4rem;
-    @include global.desktop{
+    @include global.tablet {
+      font-size: 2rem;
+      margin-left: 1rem;
+    }
+    @include global.desktop {
       font-size: 2.5rem;
       margin-left: 3rem;
       margin-top: 3rem;
@@ -130,6 +189,9 @@
       display: flex;
       flex-flow: wrap column;
       margin: 0;
+    }
+    @include global.desktop{
+      margin-bottom: 1rem;
     }
   }
 
@@ -144,13 +206,13 @@
       @include global.tablet {
         display: inline-block;
       }
-      @include global.desktop{
+      @include global.desktop {
         margin-bottom: 2.5rem;
       }
     }
   }
   &__info {
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     @include global.tablet {
       margin-top: 2rem;
     }
@@ -181,14 +243,14 @@
       width: auto;
       margin: 0;
       font-size: 1.2rem;
-      padding: 1.5rem 2.1rem;
+      padding: 1.5rem 1.8rem;
       align-self: center;
     }
     &-top {
       @include global.tablet {
         margin-top: 2rem;
       }
-      @include global.desktop{
+      @include global.desktop {
         margin-top: 4rem;
       }
     }
