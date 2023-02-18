@@ -229,7 +229,7 @@
   padding: 1.5rem 1.5rem 0 1.5rem;
   @include flex(column);
   &__title,
-  &__article__form-container {
+  &__form-container {
     margin-bottom: 15px;
   }
   &__title {
@@ -240,74 +240,72 @@
   &__main {
     @include flex(row);
   }
-  &__article {
-    &__form {
-      @include flex(row);
-      align-items: center;
-      width: 76%;
+  &__form {
+    @include flex(row);
+    align-items: center;
+    width: 76%;
 
-      &-name,
-      &-text {
-        @include flex(column);
-        justify-content: space-evenly;
-        min-height: 2.25rem;
+    &-name,
+    &-text {
+      @include flex(column);
+      justify-content: space-evenly;
+      min-height: 2.25rem;
 
-        &__input {
-          padding: 0.75rem;
-          border-radius: 0.25rem;
-          border: solid 1px variables.$mercury;
-          width: 100%;
-
-          &:focus {
-            outline: none;
-            color: black;
-            border-color: black;
-          }
-        }
-       
-        &__label {
-          color: variables.$silver;
-          font-weight: 500;
-          margin-bottom: 10px;
-          margin-top: 20px;
-          font-size: 0.9rem;
-        }
-      }
-
-      &-name {
-        &__input {
-          margin-bottom: 20px;
-        }
-      }
-      &-text__input {
-        height: 60px;
+      &-input {
+        padding: 0.75rem;
         border-radius: 0.25rem;
         border: solid 1px variables.$mercury;
-        margin-bottom: 40px;
-
-        // &:active {
-        //   color: black;
-        //   border-color: black;
-        // }
-      }
-      &-name-container,
-      &-text-container {
         width: 100%;
+
+        &:focus {
+          outline: none;
+          color: black;
+          border-color: black;
+        }
+      }
+
+      &-label {
+        color: variables.$silver;
+        font-weight: 500;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        font-size: 0.9rem;
       }
     }
-    &__icon {
-      display: inline-block;
-      height: 2.5rem;
-      width: 2.5rem;
-      border-radius: 50%;
 
-      &-container {
-        @include global.flex(row);
-        justify-content: flex-end;
-        margin-top: 1.8rem;
-        margin-right: 10px;
-        width: 20%;
+    &-name {
+      &-input {
+        margin-bottom: 20px;
       }
+    }
+    &-text-input {
+      height: 60px;
+      border-radius: 0.25rem;
+      border: solid 1px variables.$mercury;
+      margin-bottom: 40px;
+
+      // &:active {
+      //   color: black;
+      //   border-color: black;
+      // }
+    }
+    &-name-container,
+    &-text-container {
+      width: 100%;
+    }
+  }
+  &__icon {
+    display: inline-block;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+
+    &-container {
+      @include global.flex(row);
+      justify-content: flex-end;
+      margin-top: 1.8rem;
+      margin-right: 10px;
+      width: 20%;
     }
   }
 }
@@ -380,6 +378,6 @@
     }
   }
 }
- .error{
+.error {
   border-color: variables.$error;
- }
+}

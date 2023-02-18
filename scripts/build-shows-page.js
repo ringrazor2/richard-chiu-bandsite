@@ -1,4 +1,5 @@
 const shows = document.querySelector(".shows");
+
 const showsData = [
   {
     Date: "Mon Sept 06 2021",
@@ -31,12 +32,14 @@ const showsData = [
     Location: "San Francisco, CA",
   },
 ];
-function createShowsElement(showsData) {
-  const showsMain = document.createElement("article");
+function createShowsElement(Data) {
+  //   const showsDesktop = document.createElement("div");
+  //   showsDesktop.classList.add('shows__desktop-div');
+
+  const showsMain = document.createElement("div");
   showsMain.classList.add("shows__main");
 
   const showsInformationContainerDate = document.createElement("div");
-
   showsInformationContainerDate.classList.add("shows__information-container");
   showsInformationContainerDate.classList.add(
     "shows__information-container--date"
@@ -74,35 +77,42 @@ function createShowsElement(showsData) {
   const showsInfoDate = document.createElement("p");
   showsInfoDate.classList.add("shows__info");
   showsInfoDate.classList.add("shows__info--date");
-  showsInfoDate.innerText = showsData.Date;
+  showsInfoDate.innerText = Data.Date;
 
   const showsInfoVenue = document.createElement("p");
   showsInfoVenue.classList.add("shows__info");
   showsInfoVenue.classList.add("shows__info--venue");
-  showsInfoVenue.innerText = showsData.Venue;
+  showsInfoVenue.innerText = Data.Venue;
 
   const showsInfoLocation = document.createElement("p");
   showsInfoLocation.classList.add("shows__info");
   showsInfoLocation.classList.add("shows__info--location");
-  showsInfoLocation.innerText = showsData.Location;
+  showsInfoLocation.innerText = Data.Location;
 
   const showsButton = document.createElement("button");
   showsButton.classList.add("shows__button");
   showsButton.innerText = "BUY TICKETS";
 
+  //   shows.append(showsDesktop);
+  //   shows.append(showsMain);
   shows.append(showsMain);
   showsMain.append(showsInformationContainerDate);
   showsInformationContainerDate.append(showsDetailsDate);
   showsInformationContainerDate.append(showsInfoDate);
   showsMain.append(showsInformationContainerVenue);
-  showsInformationContainerDate.append(showsDetailsVenue);
-  showsInformationContainerDate.append(showsInfoVenue);
+  showsInformationContainerVenue.append(showsDetailsVenue);
+  showsInformationContainerVenue.append(showsInfoVenue);
   showsMain.append(showsInformationContainerLocation);
-  showsInformationContainerDate.append(showsDetailsLocation);
-  showsInformationContainerDate.append(showsInfoLocation);
+  showsInformationContainerLocation.append(showsDetailsLocation);
+  showsInformationContainerLocation.append(showsInfoLocation);
   showsMain.append(showsButton);
 
-  console.log(showsMain);
+  if (showsData[0] === Data) {
+    showsDetailsDate.classList.add("shows__details--visible");
+    showsDetailsVenue.classList.add("shows__details--visible");
+    showsDetailsLocation.classList.add("shows__details--visible");
+    showsButton.classList.add("shows__button-top");
+  }
   return showsMain;
 }
 
@@ -110,22 +120,50 @@ showsData.forEach((i) => {
   createShowsElement(i);
 });
 
-displayShows();
-/* <section class = "shows">
-          <h2 class = "shows__title">Shows</h2>
-          <div class = "shows__information-container">
-            <p class = "shows__details">Date</p>
-            <p class = "shows__info--date"> Dummy Date</p>
-          </div> 
-          <div class = "shows__information-container">
-            <p class = "shows__details">Venue</p>
-            <p class = "shows__info"> Dummy Venu</p>
-          </div>
-          <div class = "shows__information-container">
-            <p class = "shows__details">Location</p>
-            <p class = "shows__info"> Dummy address</p>
-          </div>
-          <button class = "shows__button">
-            Buy Tickets 
-          </button>
-        </section> */
+// Selecting the containers needed to apply active class
+const showsMainAll = document.querySelectorAll(".shows__main");
+const showsMain = document.querySelector(".shows__main");
+
+// applying active class to shows section also add new div to flex for desktop
+const showsDesktop = document.querySelector(".shows__desktop-div");
+showsDesktop.classList.add("shows__desktop-div");
+
+showsMainAll.forEach((showsMain) => {
+  showsMain.addEventListener("click", () => {
+    showsMain.classList.toggle("shows__main--active");
+  });
+  showsDesktop.append(showsMain);
+});
+
+// shows.insertBefore(showsDesktop, showsMain);
+// showsDesktop.append(showsMain);
+// showsDesktop.append(showsMain);
+
+// <section class="shows">
+//   <h2 class="shows__title">Shows</h2>
+//   <div class="shows__desktop-div">
+//     <div class="shows__main">
+//       <p class="shows__details">Date</p>
+//       <p class="shows__info--date"> Dummy Date</p>
+//     </div>
+//     <div class="shows__main">
+//       <p class="shows__details">Venue</p>
+//       <p class="shows__info"> Dummy Venu</p>
+//     </div>
+//     <div class="shows__main">
+//       <p class="shows__details">Location</p>
+//       <p class="shows__info"> Dummy address</p>
+//     </div>
+//     <button class="shows__button">Buy Tickets</button>
+//   </div>
+// </section>;
+
+// const mediaQueryTablet = window.matchMedia('(max-width: 768px)');
+// const mediaQueryDesktop = window.matchMedia('(max-width: 1280px)');
+
+// if (mediaQueryTablet.matches) {
+
+// } else {
+//   // apply desktop styles
+//   document.querySelector('body').classList.add('desktop');
+// }

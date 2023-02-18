@@ -2,7 +2,7 @@
 const body = document.querySelector("body");
 const footer = document.querySelector(".footer");
 const commentButton = document.querySelector(".comment-button");
-const commentForm = document.querySelector(".comments__article__form");
+const commentForm = document.querySelector(".comments__form");
 
 // need this for new data
 const bandComments = [];
@@ -83,14 +83,10 @@ function displayComment(commentData) {
 // Adding user data to array
 function commentPush() {
   // Getting user data
-  const userCommentName = document.querySelector(
-    ".comments__article__form-name__input"
-  );
+  const userCommentName = document.querySelector(".comments__form-name-input");
   const userName = userCommentName.value;
 
-  const userCommentInput = document.querySelector(
-    ".comments__article__form-text__input"
-  );
+  const userCommentInput = document.querySelector(".comments__form-text-input");
 
   const userComment = userCommentInput.value;
 
@@ -128,12 +124,8 @@ function commentPush() {
 
 // Clear form inputs function
 function clearFormInputs() {
-  const userCommentName = document.querySelector(
-    ".comments__article__form-name__input"
-  );
-  const userCommentInput = document.querySelector(
-    ".comments__article__form-text__input"
-  );
+  const userCommentName = document.querySelector(".comments__form-name-input");
+  const userCommentInput = document.querySelector(".comments__form-text-input");
   userCommentName.value = "";
   userCommentInput.value = "";
 }

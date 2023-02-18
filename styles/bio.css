@@ -150,7 +150,7 @@ img {
   }
 }
 @media screen and (min-width: 48rem) {
-  .nav__link__name--active {
+  .nav__link-name--active {
     border-bottom: solid 0.25rem white;
     font-weight: 700;
     color: white;
@@ -206,11 +206,11 @@ img {
     margin-left: 4rem;
   }
 }
-.footer__socials__img {
+.footer__socials-img {
   height: 1.65rem;
 }
 @media screen and (min-width: 48rem) {
-  .footer__socials__img {
+  .footer__socials-img {
     height: 2rem;
   }
 }
@@ -276,7 +276,7 @@ img {
   }
 }
 @media screen and (min-width: 48rem) {
-  .footer__contacts-tablet__inner {
+  .footer__contacts-tablet-inner {
     margin-right: 2rem;
   }
 }
@@ -596,7 +596,7 @@ img {
   flex-direction: column;
   flex-wrap: wrap;
 }
-.comments__title, .comments__article__form-container {
+.comments__title, .comments__form-container {
   margin-bottom: 15px;
 }
 .comments__title {
@@ -609,57 +609,57 @@ img {
   flex-direction: row;
   flex-wrap: wrap;
 }
-.comments__article__form {
+.comments__form {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   width: 76%;
 }
-.comments__article__form-name, .comments__article__form-text {
+.comments__form-name, .comments__form-text {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
   min-height: 2.25rem;
 }
-.comments__article__form-name__input, .comments__article__form-text__input {
+.comments__form-name-input, .comments__form-text-input {
   padding: 0.75rem;
   border-radius: 0.25rem;
   border: solid 1px #e1e1e1;
   width: 100%;
 }
-.comments__article__form-name__input:focus, .comments__article__form-text__input:focus {
+.comments__form-name-input:focus, .comments__form-text-input:focus {
   outline: none;
   color: black;
   border-color: black;
 }
-.comments__article__form-name__label, .comments__article__form-text__label {
+.comments__form-name-label, .comments__form-text-label {
   color: #afafaf;
   font-weight: 500;
   margin-bottom: 10px;
   margin-top: 20px;
   font-size: 0.9rem;
 }
-.comments__article__form-name__input {
+.comments__form-name-input {
   margin-bottom: 20px;
 }
-.comments__article__form-text__input {
+.comments__form-text-input {
   height: 60px;
   border-radius: 0.25rem;
   border: solid 1px #e1e1e1;
   margin-bottom: 40px;
 }
-.comments__article__form-name-container, .comments__article__form-text-container {
+.comments__form-name-container, .comments__form-text-container {
   width: 100%;
 }
-.comments__article__icon {
+.comments__icon {
   display: inline-block;
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 50%;
 }
-.comments__article__icon-container {
+.comments__icon-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

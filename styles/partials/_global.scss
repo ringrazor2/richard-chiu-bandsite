@@ -145,7 +145,7 @@ img {
         }
       }
     }
-    &__name {
+    &-name {
       &--active {
         @include tablet {
           border-bottom: solid 0.25rem white;
@@ -194,7 +194,7 @@ img {
       margin-left: 4rem;
     }
 
-    &__img {
+    &-img {
       height: 1.65rem;
       @include tablet {
         height: 2rem;
@@ -247,7 +247,7 @@ img {
     @include tablet {
       @include flex(row);
     }
-    &__inner {
+    &-inner {
       @include tablet {
         margin-right: 2rem;
       }
@@ -278,4 +278,3 @@ img {
     }
   }
 }
-

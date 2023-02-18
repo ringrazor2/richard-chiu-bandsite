@@ -71,29 +71,94 @@
 }
 
 .shows {
-  margin: 2rem 1.5rem 1rem 1.5rem;
+  padding: 2rem 1.5rem 1rem 1.5rem;
   border-bottom: 1px solid variables.$mercury;
-
-  &__main {
+  // figure out the border to 100 of screen
+  @include global.tablet {
+    display: flex;
+    flex-flow: wrap column;
+    // align-items: center;
+    padding: 2rem;
   }
+  @include global.desktop{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__desktop-div{
+    @include global.desktop{
+      width: 70%;
+      margin-right: 4rem;
+    }
+  }
+  &__main {
+    border-bottom: solid 1px variables.$mercury;
+    @include global.tablet {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      border-bottom: solid 1px variables.$mercury;
+      margin: 1rem;
+    }
+    &:hover {
+      background-color: variables.$alabaster;
+    }
+    &--active {
+      background-color: variables.$mercury;
+
+      &:hover {
+        background-color: variables.$mercury;
+      }
+    }
+  }
+
   &__title {
     font-weight: 600;
     margin-bottom: 1rem;
     font-size: 1.4rem;
+    @include global.desktop{
+      font-size: 2.5rem;
+      margin-left: 3rem;
+      margin-top: 3rem;
+    }
   }
   &__information-container {
     margin-top: 1rem;
+    @include global.tablet {
+      display: flex;
+      flex-flow: wrap column;
+      margin: 0;
+    }
   }
 
   &__details {
     color: variables.$silver;
     font-weight: 600;
     margin-bottom: 0.625rem;
+    @include global.tablet {
+      display: none;
+    }
+    &--visible {
+      @include global.tablet {
+        display: inline-block;
+      }
+      @include global.desktop{
+        margin-bottom: 2.5rem;
+      }
+    }
   }
   &__info {
     margin-bottom: 2rem;
+    @include global.tablet {
+      margin-top: 2rem;
+    }
     &--date {
       font-weight: 600;
+      @include global.tablet {
+        margin-top: 2rem;
+      }
     }
   }
   &__button {
@@ -111,6 +176,22 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    @include global.tablet {
+      width: auto;
+      margin: 0;
+      font-size: 1.2rem;
+      padding: 1.5rem 2.1rem;
+      align-self: center;
+    }
+    &-top {
+      @include global.tablet {
+        margin-top: 2rem;
+      }
+      @include global.desktop{
+        margin-top: 4rem;
+      }
+    }
   }
   &__divider {
     color: variables.$mercury;
