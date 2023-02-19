@@ -311,6 +311,11 @@ img {
   }
 }
 
+.divider {
+  border: 1px solid #e1e1e1;
+  margin-bottom: 2rem;
+}
+
 .hero {
   background-image: url("../assets/Images/hero-shows.jpg");
   background-position: center;

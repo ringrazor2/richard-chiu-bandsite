@@ -311,6 +311,11 @@ img {
   }
 }
 
+.divider {
+  border: 1px solid #e1e1e1;
+  margin-bottom: 2rem;
+}
+
 .hero {
   background-image: url("../assets/Images/hero-bio.jpg");
   background-position: center;
@@ -595,6 +600,11 @@ img {
   flex-direction: column;
   flex-wrap: wrap;
 }
+@media screen and (min-width: 80rem) {
+  .comments {
+    align-items: center;
+  }
+}
 .comments__title, .comments__form-container {
   margin-bottom: 15px;
 }
@@ -603,10 +613,36 @@ img {
   font-size: 1.5rem;
   font-weight: 600;
 }
+@media screen and (min-width: 80rem) {
+  .comments__title {
+    margin-left: 9rem;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .comments__title-container {
+    align-self: flex-start;
+    margin-right: 10rem;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .comments__article {
+    padding-bottom: 0.5rem;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .comments__article {
+    width: 76vw;
+  }
+}
 .comments__main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+@media screen and (min-width: 80rem) {
+  .comments__main {
+    flex-wrap: nowrap;
+  }
 }
 .comments__form {
   display: flex;
@@ -614,6 +650,16 @@ img {
   flex-wrap: wrap;
   align-items: center;
   width: 76%;
+}
+@media screen and (min-width: 80rem) {
+  .comments__form {
+    width: 85%;
+  }
+}
+@media screen and (min-width: 80rem) and (min-width: 80rem) {
+  .comments__form-container {
+    width: 65%;
+  }
 }
 .comments__form-name, .comments__form-text {
   display: flex;
@@ -681,7 +727,7 @@ img {
   border-color: black;
 }
 
-.comment-button {
+.comments__button {
   background-color: #323232;
   color: white;
   height: 2.5rem;
@@ -690,8 +736,20 @@ img {
   border: none;
   cursor: pointer;
 }
-.comment-button:hover {
+@media screen and (min-width: 48rem) {
+  .comments__button {
+    width: 28%;
+  }
+}
+.comments__button:hover {
   background-color: black;
+}
+@media screen and (min-width: 48rem) {
+  .comments__button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
 }
 
 .poster {
@@ -703,8 +761,30 @@ img {
   border-top: 1px solid #e1e1e1;
   padding: 1.5rem;
 }
+@media screen and (min-width: 80rem) {
+  .poster {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 57vw;
+    padding: 0 1.5rem;
+    border-top-width: 90%;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .poster-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 .poster__icon-container {
   margin-right: 20px;
+}
+@media screen and (min-width: 80rem) {
+  .poster__icon-container {
+    padding-top: 1.5rem;
+  }
 }
 .poster__icon__avatar-default {
   background-color: #e1e1e1;
@@ -714,6 +794,12 @@ img {
 }
 .poster__main-container {
   width: 90%;
+}
+@media screen and (min-width: 80rem) {
+  .poster__main-container {
+    width: 70%;
+    padding: 1.5rem 0;
+  }
 }
 .poster__name {
   font-weight: 600;

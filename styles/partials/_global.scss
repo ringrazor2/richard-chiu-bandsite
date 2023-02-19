@@ -150,6 +150,7 @@ img {
           border-bottom: solid 0.25rem white;
           font-weight: 700;
           color: white;
+          // margin-top: 1rem;
         }
       }
     }
@@ -276,4 +277,9 @@ img {
       margin-right: 6rem;
     }
   }
+}
+
+.divider{
+  border: 1px solid variables.$mercury;
+  margin-bottom: 2rem;
 }

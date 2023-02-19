@@ -34,6 +34,12 @@ function createCommentElement(comment) {
   const article = document.createElement("article");
   article.classList.add("poster");
 
+  const divider = document.createElement("hr");
+  divider.classList.add("divider");
+
+  const posterContentContainer = document.createElement('div');
+  posterContentContainer.classList.add("poster__content-container")
+
   const posterIconContainer = document.createElement("div");
   posterIconContainer.classList.add("poster__icon-container");
 
@@ -64,6 +70,10 @@ function createCommentElement(comment) {
   article.append(posterIconContainer);
   posterIconContainer.append(posterIconAvatar);
   article.append(posterMainContainer);
+  // posterContentContainer.append(divider)
+  // posterContentContainer.append(posterIconContainer)
+  // posterContentContainer.append(posterMainContainer);
+  article.append(posterContentContainer)
   posterMainContainer.append(posterNameDateContainer);
   posterNameDateContainer.append(posterName);
   posterNameDateContainer.append(posterDate);
@@ -72,12 +82,18 @@ function createCommentElement(comment) {
 
   return article;
 }
+
+// Making container so I can position desktop view
+const posterSection = document.createElement("section");
+posterSection.classList.add("poster-container");
+body.insertBefore(posterSection, footer);
+
 // Function for rendering comment on page
 function displayComment(commentData) {
   const newCommentElement = createCommentElement(commentData);
   // Need to select where we want to insert new element before/after
   const existingCommentElement = document.querySelector(".poster");
-  body.insertBefore(newCommentElement, existingCommentElement);
+  posterSection.insertBefore(newCommentElement, existingCommentElement);
 }
 
 // Adding user data to array
@@ -142,7 +158,8 @@ function eventCommentGeneration(e) {
 function addDefaultCommentsToPage() {
   defaultComments.forEach((commentData) => {
     const defaultCommentElement = createCommentElement(commentData);
-    body.insertBefore(defaultCommentElement, footer);
+    // body.insertBefore(defaultCommentElement, footer);
+    posterSection.append(defaultCommentElement);
   });
 }
 addDefaultCommentsToPage();

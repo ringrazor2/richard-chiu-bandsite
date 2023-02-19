@@ -228,6 +228,9 @@
 .comments {
   padding: 1.5rem 1.5rem 0 1.5rem;
   @include flex(column);
+  @include global.desktop {
+    align-items: center;
+  }
   &__title,
   &__form-container {
     margin-bottom: 15px;
@@ -236,14 +239,45 @@
     color: variables.$bandSiteBlack;
     font-size: 1.5rem;
     font-weight: 600;
+    @include global.desktop{
+      margin-left: 9rem;
+    }
+
+    &-container {
+      @include global.desktop {
+        align-self: flex-start;
+        margin-right: 10rem;
+      }
+    }
+  }
+  &__article {
+    @include global.tablet {
+      padding-bottom: 0.5rem;
+    }
+    @include global.desktop {
+      width: 76vw;
+    }
   }
   &__main {
     @include flex(row);
+    @include global.desktop{
+      flex-wrap: nowrap;
+      // margin-right: 17rem;
+    }
   }
   &__form {
     @include flex(row);
     align-items: center;
     width: 76%;
+    @include global.desktop {
+      width: 85%;
+
+      &-container{
+        @include global.desktop{
+          width: 65%;
+        }
+      }
+    }
 
     &-name,
     &-text {
@@ -321,7 +355,7 @@
   color: black;
   border-color: black;
 }
-.comment-button {
+.comments__button {
   background-color: variables.$bandSiteBlack;
   color: white;
   height: 2.5rem;
@@ -330,8 +364,19 @@
   border: none;
   cursor: pointer;
 
+  @include global.tablet {
+    width: 28%;
+  }
+
   &:hover {
     background-color: black;
+  }
+  &-container {
+    @include global.tablet {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
   }
 }
 
@@ -342,9 +387,27 @@
   border-top: 1px solid variables.$mercury;
   padding: 1.5rem;
 
+  @include global.desktop {
+    @include flex(row);
+    width: 57vw;
+    padding: 0 1.5rem;
+    border-top-width: 90%;
+
+  }
+
+  &-container {
+    @include global.desktop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
   &__icon {
     &-container {
       margin-right: 20px;
+      @include global.desktop {
+        padding-top: 1.5rem;
+      }
     }
     &__avatar-default {
       background-color: variables.$mercury;
@@ -355,6 +418,10 @@
   }
   &__main-container {
     width: 90%;
+    @include global.desktop {
+      width: 70%;
+      padding: 1.5rem 0;
+    }
   }
   &__name {
     font-weight: 600;
