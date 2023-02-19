@@ -37,8 +37,8 @@ function createCommentElement(comment) {
   const divider = document.createElement("hr");
   divider.classList.add("divider");
 
-  const posterContentContainer = document.createElement('div');
-  posterContentContainer.classList.add("poster__content-container")
+  const posterContentContainer = document.createElement("div");
+  posterContentContainer.classList.add("poster__content-container");
 
   const posterIconContainer = document.createElement("div");
   posterIconContainer.classList.add("poster__icon-container");
@@ -70,10 +70,7 @@ function createCommentElement(comment) {
   article.append(posterIconContainer);
   posterIconContainer.append(posterIconAvatar);
   article.append(posterMainContainer);
-  // posterContentContainer.append(divider)
-  // posterContentContainer.append(posterIconContainer)
-  // posterContentContainer.append(posterMainContainer);
-  article.append(posterContentContainer)
+  article.append(posterContentContainer);
   posterMainContainer.append(posterNameDateContainer);
   posterNameDateContainer.append(posterName);
   posterNameDateContainer.append(posterDate);
@@ -106,22 +103,26 @@ function commentPush() {
 
   const userComment = userCommentInput.value;
 
-  // Error handing - might change alert to better visual error if time permits
+  // Error handing
   if (userName === "" && userComment === "") {
     userCommentName.classList.add("error");
     userCommentInput.classList.add("error");
+    alert("Please enter a username and comment");
     return;
   } else if (!userName && !userComment) {
     userCommentName.classList.add("error");
     userCommentInput.classList.add("error");
+    alert("Please enter a username and comment");
     return;
   } else if (userName === "") {
     userCommentName.classList.add("error");
     userCommentInput.classList.remove("error");
+    alert("Please enter a username");
     return;
   } else if (userComment === "") {
     userCommentInput.classList.add("error");
     userCommentName.classList.remove("error");
+    alert("please enter a comment");
     return;
   } else {
     userCommentName.classList.remove("error");
@@ -167,3 +168,4 @@ addDefaultCommentsToPage();
 // calling the function to render a comment when form is submitted
 // commentButton.addEventListener("click", eventCommentGeneration);
 commentForm.addEventListener("submit", eventCommentGeneration);
+

@@ -101,6 +101,7 @@ img {
     @include flex(row);
     justify-content: space-between;
     align-items: center;
+    
     @include tablet {
       width: 45%;
       margin-left: 2rem;
@@ -108,7 +109,6 @@ img {
     @include desktop {
       width: 25%;
     }
-
     &-container {
       width: 100%;
       margin-top: 1.3rem;
@@ -150,7 +150,6 @@ img {
           border-bottom: solid 0.25rem white;
           font-weight: 700;
           color: white;
-          // margin-top: 1rem;
         }
       }
     }

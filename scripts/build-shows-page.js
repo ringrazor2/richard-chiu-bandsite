@@ -32,10 +32,9 @@ const showsData = [
     Location: "San Francisco, CA",
   },
 ];
-function createShowsElement(Data) {
-  //   const showsDesktop = document.createElement("div");
-  //   showsDesktop.classList.add('shows__desktop-div');
 
+// creating shows DOM element
+function createShowsElement(Data) {
   const showsMain = document.createElement("div");
   showsMain.classList.add("shows__main");
 
@@ -93,8 +92,6 @@ function createShowsElement(Data) {
   showsButton.classList.add("shows__button");
   showsButton.innerText = "BUY TICKETS";
 
-  //   shows.append(showsDesktop);
-  //   shows.append(showsMain);
   shows.append(showsMain);
   showsMain.append(showsInformationContainerDate);
   showsInformationContainerDate.append(showsDetailsDate);
@@ -116,6 +113,7 @@ function createShowsElement(Data) {
   return showsMain;
 }
 
+// populating elements for the showsData array
 showsData.forEach((i) => {
   createShowsElement(i);
 });
@@ -124,47 +122,30 @@ showsData.forEach((i) => {
 const showsMainAll = document.querySelectorAll(".shows__main");
 const showsMain = document.querySelector(".shows__main");
 
-// applying active class to shows section also add new div to flex for desktop
 const showsDesktop = document.createElement("div");
 showsDesktop.classList.add("shows__desktop-div");
 shows.append(showsDesktop);
 
+// this variable is to keep track of which show div is active
+let activeShowsMain = null;
+
+// Applying active class with conditionals 
 showsMainAll.forEach((showsMain) => {
   showsMain.addEventListener("click", () => {
-    showsMain.classList.toggle("shows__main--active");
+    if (activeShowsMain) {
+      // this if checks if there is a currently selected EL and removes active if there is
+      activeShowsMain.classList.remove("shows__main--active");
+    }
+    if (showsMain !== activeShowsMain) {
+      showsMain.classList.add("shows__main--active");
+      // this sets new selected div as new reference for activeShowsMain
+      activeShowsMain = showsMain;
+    }
+    // if new clicked element same as active element deselect
+    else {
+      activeShowsMain = null;
+    }
   });
+  // Need this for desktop styling
   showsDesktop.append(showsMain);
 });
-
-// shows.insertBefore(showsDesktop, showsMain);
-// showsDesktop.append(showsMain);
-// showsDesktop.append(showsMain);
-
-// <section class="shows">
-//   <h2 class="shows__title">Shows</h2>
-//   <div class="shows__desktop-div">
-//     <div class="shows__main">
-//       <p class="shows__details">Date</p>
-//       <p class="shows__info--date"> Dummy Date</p>
-//     </div>
-//     <div class="shows__main">
-//       <p class="shows__details">Venue</p>
-//       <p class="shows__info"> Dummy Venu</p>
-//     </div>
-//     <div class="shows__main">
-//       <p class="shows__details">Location</p>
-//       <p class="shows__info"> Dummy address</p>
-//     </div>
-//     <button class="shows__button">Buy Tickets</button>
-//   </div>
-// </section>;
-
-// const mediaQueryTablet = window.matchMedia('(max-width: 768px)');
-// const mediaQueryDesktop = window.matchMedia('(max-width: 1280px)');
-
-// if (mediaQueryTablet.matches) {
-
-// } else {
-//   // apply desktop styles
-//   document.querySelector('body').classList.add('desktop');
-// }
