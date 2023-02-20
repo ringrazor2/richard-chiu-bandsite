@@ -1,5 +1,6 @@
 const shows = document.querySelector(".shows");
 
+// storing data in an array of objects
 const showsData = [
   {
     Date: "Mon Sept 06 2021",
@@ -121,15 +122,16 @@ showsData.forEach((i) => {
 // Selecting the containers needed to apply active class
 const showsMainAll = document.querySelectorAll(".shows__main");
 const showsMain = document.querySelector(".shows__main");
-
+const showsButtonAll = document.querySelectorAll('.shows__button')
+const showsButton = document.querySelector('.shows__button')
 const showsDesktop = document.createElement("div");
 showsDesktop.classList.add("shows__desktop-div");
 shows.append(showsDesktop);
-
+console.log(showsButton);
 // this variable is to keep track of which show div is active
 let activeShowsMain = null;
 
-// Applying active class with conditionals 
+// Applying active class with conditionals
 showsMainAll.forEach((showsMain) => {
   showsMain.addEventListener("click", () => {
     if (activeShowsMain) {

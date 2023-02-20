@@ -311,11 +311,6 @@ img {
   }
 }
 
-.divider {
-  border: 1px solid #e1e1e1;
-  margin-bottom: 2rem;
-}
-
 .hero {
   background-image: url("../assets/Images/hero-bio.jpg");
   background-position: center;
@@ -595,7 +590,7 @@ img {
 }
 
 .comments {
-  padding: 1.5rem 1.5rem 0 1.5rem;
+  padding: 1.5rem 1.5rem 0 0.5rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -606,12 +601,18 @@ img {
   }
 }
 .comments__title, .comments__form-container {
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 .comments__title {
   color: #323232;
   font-size: 1.5rem;
   font-weight: 600;
+  margin-left: 1.2rem;
+}
+@media screen and (min-width: 48rem) {
+  .comments__title {
+    margin-left: 3.5rem;
+  }
 }
 @media screen and (min-width: 80rem) {
   .comments__title {
@@ -682,18 +683,19 @@ img {
 .comments__form-name-label, .comments__form-text-label {
   color: #afafaf;
   font-weight: 500;
-  margin-bottom: 10px;
-  margin-top: 20px;
+  margin-bottom: 0.625rem;
+  margin-top: 1.25rem;
   font-size: 0.9rem;
 }
 .comments__form-name-input {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 .comments__form-text-input {
-  height: 60px;
+  height: 3.75rem;
   border-radius: 0.25rem;
   border: solid 1px #e1e1e1;
-  margin-bottom: 40px;
+  padding-bottom: 4.7rem;
+  margin-bottom: 1.25rem;
 }
 .comments__form-name-container, .comments__form-text-container {
   width: 100%;
@@ -710,14 +712,14 @@ img {
   flex-wrap: wrap;
   justify-content: flex-end;
   margin-top: 1.8rem;
-  margin-right: 10px;
+  margin-right: 0.625rem;
   width: 20%;
 }
 
 .input__comment {
   color: #afafaf;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   width: 100%;
   font-size: 0.9rem;
 }
@@ -738,7 +740,7 @@ img {
 }
 @media screen and (min-width: 48rem) {
   .comments__button {
-    width: 28%;
+    width: 31%;
   }
 }
 .comments__button:hover {
@@ -761,6 +763,12 @@ img {
   border-top: 1px solid #e1e1e1;
   padding: 1.5rem;
 }
+@media screen and (min-width: 48rem) {
+  .poster {
+    margin: 1.5rem 7rem;
+    padding: 1.5rem 0.5rem;
+  }
+}
 @media screen and (min-width: 80rem) {
   .poster {
     display: flex;
@@ -779,7 +787,7 @@ img {
   }
 }
 .poster__icon-container {
-  margin-right: 20px;
+  margin-right: 1.25rem;
 }
 @media screen and (min-width: 80rem) {
   .poster__icon-container {
@@ -803,26 +811,26 @@ img {
 }
 .poster__name {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .poster__name-date-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   width: 100%;
 }
 .poster__date {
   color: #e1e1e1;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .poster__comment {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .poster__comment-container {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .error {

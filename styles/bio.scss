@@ -226,19 +226,23 @@
   }
 }
 .comments {
-  padding: 1.5rem 1.5rem 0 1.5rem;
+  padding: 1.5rem 1.5rem 0 0.5rem;
   @include flex(column);
   @include global.desktop {
     align-items: center;
   }
   &__title,
   &__form-container {
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
   }
   &__title {
     color: variables.$bandSiteBlack;
     font-size: 1.5rem;
     font-weight: 600;
+    margin-left: 1.2rem;
+    @include global.tablet{
+      margin-left: 3.5rem;
+    }
     @include global.desktop{
       margin-left: 9rem;
     }
@@ -301,27 +305,23 @@
       &-label {
         color: variables.$silver;
         font-weight: 500;
-        margin-bottom: 10px;
-        margin-top: 20px;
+        margin-bottom: 0.625rem;
+        margin-top: 1.25rem;
         font-size: 0.9rem;
       }
     }
 
     &-name {
       &-input {
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
       }
     }
     &-text-input {
-      height: 60px;
+      height: 3.75rem;
       border-radius: 0.25rem;
       border: solid 1px variables.$mercury;
-      margin-bottom: 40px;
-
-      // &:active {
-      //   color: black;
-      //   border-color: black;
-      // }
+      padding-bottom: 4.7rem;
+      margin-bottom: 1.25rem;
     }
     &-name-container,
     &-text-container {
@@ -338,7 +338,7 @@
       @include global.flex(row);
       justify-content: flex-end;
       margin-top: 1.8rem;
-      margin-right: 10px;
+      margin-right: 0.625rem;
       width: 20%;
     }
   }
@@ -346,7 +346,7 @@
 .input__comment {
   color: variables.$silver;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   width: 100%;
   font-size: 0.9rem;
 }
@@ -365,7 +365,7 @@
   cursor: pointer;
 
   @include global.tablet {
-    width: 28%;
+    width: 31%;
   }
 
   &:hover {
@@ -387,12 +387,15 @@
   border-top: 1px solid variables.$mercury;
   padding: 1.5rem;
 
+  @include global.tablet{
+    margin: 1.5rem 7rem;
+    padding: 1.5rem 0.5rem
+  }
   @include global.desktop {
     @include flex(row);
     width: 57vw;
     padding: 0 1.5rem;
     border-top-width: 90%;
-
   }
 
   &-container {
@@ -404,7 +407,7 @@
   }
   &__icon {
     &-container {
-      margin-right: 20px;
+      margin-right: 1.25rem;
       @include global.desktop {
         padding-top: 1.5rem;
       }
@@ -425,23 +428,23 @@
   }
   &__name {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.875rem;
     &-date-container {
       @include flex(row);
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
       width: 100%;
     }
   }
   &__date {
     color: variables.$mercury;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   &__comment {
-    font-size: 14px;
+    font-size: 0.875rem;
     &-container {
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
     }
   }
 }

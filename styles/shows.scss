@@ -77,13 +77,13 @@
     color: white;
     z-index: 2;
     font-size: 0.8rem;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
     @include global.tablet {
       font-size: 1.5rem;
       margin-top: 2rem;
       padding-left: 2.5rem;
     }
-    @include global.desktop{
+    @include global.desktop {
       margin-bottom: 1rem;
     }
   }
@@ -125,11 +125,9 @@
 .shows {
   padding: 2rem 1.5rem 1rem 1.5rem;
   border-bottom: 1px solid variables.$mercury;
-  // figure out the border to 100 of screen
   @include global.tablet {
     display: flex;
     flex-flow: wrap column;
-    // align-items: center;
     padding: 2rem;
     padding-top: 3.5rem;
   }
@@ -156,7 +154,7 @@
       border-bottom: solid 1px variables.$mercury;
       margin: 1rem;
     }
-    @include global.desktop{
+    @include global.desktop {
     }
     &:hover {
       background-color: variables.$alabaster;
@@ -191,7 +189,7 @@
       flex-flow: wrap column;
       margin: 0;
     }
-    @include global.desktop{
+    @include global.desktop {
       margin-bottom: 1rem;
     }
   }
@@ -239,6 +237,10 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    &:hover {
+      background-color: black;
+    }
 
     @include global.tablet {
       width: auto;

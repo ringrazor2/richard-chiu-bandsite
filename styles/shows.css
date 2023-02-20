@@ -311,11 +311,6 @@ img {
   }
 }
 
-.divider {
-  border: 1px solid #e1e1e1;
-  margin-bottom: 2rem;
-}
-
 .hero {
   background-image: url("../assets/Images/hero-shows.jpg");
   background-position: center;
@@ -395,7 +390,7 @@ img {
   color: white;
   z-index: 2;
   font-size: 0.8rem;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 @media screen and (min-width: 48rem) {
   .hero__album {
@@ -582,6 +577,9 @@ img {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+.shows__button:hover {
+  background-color: black;
 }
 @media screen and (min-width: 48rem) {
   .shows__button {
