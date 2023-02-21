@@ -1,6 +1,6 @@
 const shows = document.querySelector(".shows");
 const url = "https://project-1-api.herokuapp.com/showdates?api_key=";
-const apiKey = "20ccaf53-7f6b-4cc3-ab19-4f1f97db6b49";
+const apiKey = "dc918ff5-c704-4806-be51-b9dccadb6820";
 const getRes = axios.get(url + `${apiKey}`);
 
 //function for converting timestamp into string date

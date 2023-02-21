@@ -4,38 +4,20 @@ const footer = document.querySelector(".footer");
 const commentButton = document.querySelector(".comment-button");
 const commentForm = document.querySelector(".comments__form");
 
-// need this for new data
-const bandComments = [];
+const url = "https://project-1-api.herokuapp.com/comments?api_key=";
+const apiKey = "dc918ff5-c704-4806-be51-b9dccadb6820";
+const getRes = axios.get(url + apiKey);
 
-// storing default data
-const defaultComments = [
-  {
-    name: "Connor Walton",
-    date: "02/17/2021",
-    comment:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    name: "Emilie Beach",
-    date: "01/09/2021",
-    comment:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Miles Acosta",
-    date: "12/ 20/2020",
-    comment:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
+//function for converting timestamp into string date
+function stringDate(dateCode) {
+  const date = new Date(dateCode);
+  const dateString = date.toLocaleDateString();
+  return dateString;
+}
 
-// generate comment DOM element
-function createCommentElement(comment) {
+function createCommentElement(commentData) {
   const article = document.createElement("article");
   article.classList.add("poster");
-
-  const divider = document.createElement("hr");
-  divider.classList.add("divider");
 
   const posterContentContainer = document.createElement("div");
   posterContentContainer.classList.add("poster__content-container");
@@ -54,18 +36,18 @@ function createCommentElement(comment) {
 
   const posterName = document.createElement("h4");
   posterName.classList.add("poster__name");
-  posterName.textContent = comment.name;
+  posterName.textContent = commentData.name;
 
   const posterDate = document.createElement("h4");
   posterDate.classList.add("poster__date");
-  posterDate.textContent = comment.date;
+  posterDate.textContent = stringDate(commentData.timestamp);
 
   const posterCommentContainer = document.createElement("div");
   posterCommentContainer.classList.add("poster__comment-container");
 
   const posterComment = document.createElement("p");
   posterComment.classList.add("poster__comment");
-  posterComment.textContent = comment.comment;
+  posterComment.textContent = commentData.comment;
 
   article.append(posterIconContainer);
   posterIconContainer.append(posterIconAvatar);
@@ -79,6 +61,13 @@ function createCommentElement(comment) {
 
   return article;
 }
+// generate comment DOM element
+getRes.then((response) => {
+  commentData = response.data;
+  console.log(commentData);
+  createCommentElement(commentData);
+  addCommentsToPage(commentData);
+});
 
 // Making container so I can position desktop view
 const posterSection = document.createElement("section");
@@ -156,16 +145,14 @@ function eventCommentGeneration(e) {
 }
 
 // Add default comments to page
-function addDefaultCommentsToPage() {
-  defaultComments.forEach((commentData) => {
-    const defaultCommentElement = createCommentElement(commentData);
+function addCommentsToPage(data) {
+  data.forEach((commentData) => {
+    const commentElement = createCommentElement(commentData);
     // body.insertBefore(defaultCommentElement, footer);
-    posterSection.append(defaultCommentElement);
+    posterSection.append(commentElement);
   });
 }
-addDefaultCommentsToPage();
 
 // calling the function to render a comment when form is submitted
 // commentButton.addEventListener("click", eventCommentGeneration);
 commentForm.addEventListener("submit", eventCommentGeneration);
-
