@@ -1,12 +1,11 @@
-// Grabbing elements needed for script
+// Grabbing needed elements
 const body = document.querySelector("body");
 const footer = document.querySelector(".footer");
 const commentButton = document.querySelector(".comment-button");
 const commentForm = document.querySelector(".comments__form");
 
 const url = "https://project-1-api.herokuapp.com/comments?api_key=";
-const apiKey = "dc918ff5-c704-4806-be51-b9dccadb6820";
-const getRes = axios.get(url + apiKey);
+const apiKey = "088a9146-e8e4-41a8-a3e3-2c663fda268a";
 
 //function for converting timestamp into string date
 function stringDate(dateCode) {
@@ -15,6 +14,7 @@ function stringDate(dateCode) {
   return dateString;
 }
 
+// creating elements with DOM
 function createCommentElement(commentData) {
   const article = document.createElement("article");
   article.classList.add("poster");
@@ -61,25 +61,31 @@ function createCommentElement(commentData) {
 
   return article;
 }
-// generate comment DOM element
-getRes.then((response) => {
-  commentData = response.data;
-  console.log(commentData);
-  createCommentElement(commentData);
-  addCommentsToPage(commentData);
-});
 
-// Making container so I can position desktop view
+// filling in DOM with API data and rendering on page
+function displayCommentData() {
+  const getRes = axios.get(url + apiKey);
+
+  getRes.then((response) => {
+    commentData = response.data;
+    // sort data based off timestamp (in this case most recent first)
+    commentData.sort((a, b) => b.timestamp - a.timestamp);
+    console.log(commentData);
+    addCommentsToPage(commentData);
+  });
+}
+
 const posterSection = document.createElement("section");
 posterSection.classList.add("poster-container");
 body.insertBefore(posterSection, footer);
 
-// Function for rendering comment on page
-function displayComment(commentData) {
-  const newCommentElement = createCommentElement(commentData);
-  // Need to select where we want to insert new element before/after
-  const existingCommentElement = document.querySelector(".poster");
-  posterSection.insertBefore(newCommentElement, existingCommentElement);
+// Add default comments to page
+function addCommentsToPage(data) {
+  posterSection.innerHTML = "";
+  data.forEach((comment) => {
+    const newComment = createCommentElement(comment);
+    posterSection.append(newComment);
+  });
 }
 
 // Adding user data to array
@@ -89,7 +95,6 @@ function commentPush() {
   const userName = userCommentName.value;
 
   const userCommentInput = document.querySelector(".comments__form-text-input");
-
   const userComment = userCommentInput.value;
 
   // Error handing
@@ -120,12 +125,19 @@ function commentPush() {
   // Organizing user data into an object
   const newComment = {
     name: userName,
-    date: new Date().toLocaleDateString(),
     comment: userComment,
   };
 
-  // Pushing new user data to the front of the array list
-  bandComments.unshift(newComment);
+  // Posting user data to api server with post
+  const postRes = axios.post(url + apiKey, newComment);
+  postRes
+    .then((response) => {
+      commentData = response.data;
+      displayCommentData(commentData);
+    })
+    .catch((err) => {
+      console.err(`Error: ${err.response.status}`);
+    });
 }
 
 // Clear form inputs function
@@ -136,21 +148,13 @@ function clearFormInputs() {
   userCommentInput.value = "";
 }
 
+displayCommentData();
+
 // Event listener for adding a comment
 function eventCommentGeneration(e) {
   e.preventDefault();
   commentPush();
-  displayComment(bandComments[0]);
   clearFormInputs();
-}
-
-// Add default comments to page
-function addCommentsToPage(data) {
-  data.forEach((commentData) => {
-    const commentElement = createCommentElement(commentData);
-    // body.insertBefore(defaultCommentElement, footer);
-    posterSection.append(commentElement);
-  });
 }
 
 // calling the function to render a comment when form is submitted

@@ -1,13 +1,13 @@
 const shows = document.querySelector(".shows");
 const url = "https://project-1-api.herokuapp.com/showdates?api_key=";
-const apiKey = "dc918ff5-c704-4806-be51-b9dccadb6820";
+const apiKey = "7c129efb-155a-47e2-a314-6a5dd9393591";
 const getRes = axios.get(url + `${apiKey}`);
 
 //function for converting timestamp into string date
-function stringDate(dateCode){
+function stringDate(dateCode) {
   const date = new Date(dateCode);
   const dateString = date.toLocaleDateString();
-  return dateString
+  return dateString;
 }
 getRes.then((response) => {
   const apiData = response.data;
@@ -96,7 +96,7 @@ getRes.then((response) => {
     return showsMain;
   }
 
-  // populating data for each api data entry 
+  // populating data for each api data entry
   apiData.forEach((i) => {
     createShowsElement(i);
   });
@@ -116,22 +116,26 @@ console.log(showsButton);
 let activeShowsMain = null;
 
 // Applying active class with conditionals
-showsMainAll.forEach((showsMain) => {
-  showsMain.addEventListener("click", () => {
-    if (activeShowsMain) {
-      // this if checks if there is a currently selected EL and removes active if there is
-      activeShowsMain.classList.remove("shows__main--active");
-    }
-    if (showsMain !== activeShowsMain) {
-      showsMain.classList.add("shows__main--active");
-      // this sets new selected div as new reference for activeShowsMain
-      activeShowsMain = showsMain;
-    }
-    // if new clicked element same as active element deselect
-    else {
-      activeShowsMain = null;
-    }
+showsMainAll
+  .forEach((showsMain) => {
+    showsMain.addEventListener("click", () => {
+      if (activeShowsMain) {
+        // this if checks if there is a currently selected EL and removes active if there is
+        activeShowsMain.classList.remove("shows__main--active");
+      }
+      if (showsMain !== activeShowsMain) {
+        showsMain.classList.add("shows__main--active");
+        // this sets new selected div as new reference for activeShowsMain
+        activeShowsMain = showsMain;
+      }
+      // if new clicked element same as active element deselect
+      else {
+        activeShowsMain = null;
+      }
+    });
+    // Need this for desktop styling
+    showsDesktop.append(showsMain);
+  })
+  .catch((err) => {
+    console.err(`Error: ${err.response.status}`);
   });
-  // Need this for desktop styling
-  showsDesktop.append(showsMain);
-});
