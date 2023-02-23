@@ -5,7 +5,7 @@ const commentButton = document.querySelector(".comment-button");
 const commentForm = document.querySelector(".comments__form");
 
 const url = "https://project-1-api.herokuapp.com/comments?api_key=";
-const apiKey = "088a9146-e8e4-41a8-a3e3-2c663fda268a";
+const apiKey = "315ef1bb-514d-4f3a-a6b9-027a26682d1b";
 
 //function for converting timestamp into string date
 function stringDate(dateCode) {
@@ -77,7 +77,14 @@ function displayCommentData() {
 
 const posterSection = document.createElement("section");
 posterSection.classList.add("poster-container");
-body.insertBefore(posterSection, footer);
+
+const posterDesktop = document.createElement("div");
+posterDesktop.classList.add("poster-desktop");
+
+body.insertBefore(posterDesktop, footer);
+body.insertBefore(posterSection, posterDesktop);
+posterDesktop.append(posterContainer);
+
 
 // Add default comments to page
 function addCommentsToPage(data) {

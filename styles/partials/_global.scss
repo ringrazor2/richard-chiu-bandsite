@@ -70,7 +70,7 @@ img {
   justify-content: center;
   padding-top: 2rem;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   @include tablet {
     @include flex(row);
     justify-content: flex-start;
@@ -164,6 +164,8 @@ img {
   }
   @include desktop {
     padding-left: 10rem;
+    max-width: 80rem;
+    margin: 0 auto;
   }
 
   p {
