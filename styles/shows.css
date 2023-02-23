@@ -318,18 +318,20 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 70vw;
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  position: relative;
+  height: 16rem;
+  width: 100%;
+}
+@media screen and (min-width: 48rem) {
+  .hero {
+    height: 29rem;
+  }
 }
 @media screen and (min-width: 80rem) {
   .hero {
-    height: 50vw;
+    height: 40rem;
+    display: flex;
     justify-content: center;
+    align-items: center;
   }
 }
 .hero__content {
@@ -337,7 +339,8 @@ img {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-around;
-  padding: 0.75rem;
+  padding: 1rem;
+  padding-top: 2rem;
   width: 100%;
 }
 @media screen and (min-width: 80rem) {
@@ -345,34 +348,46 @@ img {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 4rem;
+    padding: 0;
     align-items: center;
     margin: 0;
-    width: 89%;
+    margin-bottom: 4rem;
+    width: 77%;
   }
 }
 .hero__overlay {
-  height: 70vw;
+  height: 16rem;
   width: 100vw;
   position: absolute;
   color: #000;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
+@media screen and (min-width: 48rem) {
+  .hero__overlay {
+    height: 29rem;
+  }
+}
 @media screen and (min-width: 80rem) {
   .hero__overlay {
-    height: 50vw;
+    height: 40rem;
   }
 }
 .hero__text {
   z-index: 2;
+}
+@media screen and (min-width: 48rem) {
+  .hero__text {
+    margin-top: 1rem;
+  }
 }
 @media screen and (min-width: 80rem) {
   .hero__text {
     display: flex;
     flex-flow: wrap column;
     justify-content: center;
-    margin-bottom: 5.2rem;
+    margin: 0;
+    padding: 0;
   }
 }
 .hero__title {
@@ -386,6 +401,14 @@ img {
     font-size: 3.4rem;
     padding-left: 2.5rem;
     font-weight: 600;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .hero__title {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
   }
 }
 .hero__album {
@@ -403,6 +426,8 @@ img {
 }
 @media screen and (min-width: 80rem) {
   .hero__album {
+    margin: 0;
+    padding: 0;
     margin-bottom: 1rem;
   }
 }
@@ -411,16 +436,16 @@ img {
   justify-content: center;
   align-items: center;
   align-self: center;
-  height: 30vw;
+  height: 7rem;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
   z-index: 2;
 }
 @media screen and (min-width: 48rem) {
   .hero__soundcloud {
     padding-left: 2.5rem;
     justify-content: flex-start;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
   }
 }
 @media screen and (min-width: 80rem) {
@@ -429,26 +454,26 @@ img {
   }
 }
 .hero__iframe {
-  height: 100%;
+  height: 85%;
   border-radius: 4px;
-  width: 90vw;
   border: none;
+  width: 18rem;
 }
 @media screen and (min-width: 48rem) {
   .hero__iframe {
-    width: 60vw;
-    height: 75%;
+    width: 22rem;
+    height: 100%;
   }
 }
 @media screen and (min-width: 80rem) {
   .hero__iframe {
     width: 32vw;
-    height: 35%;
+    height: 100%;
   }
 }
 
 .shows {
-  padding: 2rem 1.5rem 1rem 1.5rem;
+  padding: 2rem 1rem 1rem 1rem;
   border-bottom: 1px solid #e1e1e1;
 }
 @media screen and (min-width: 48rem) {

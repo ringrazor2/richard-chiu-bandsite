@@ -11,8 +11,7 @@ function stringDate(dateCode) {
 }
 getRes.then((response) => {
   const apiData = response.data;
-  console.log(apiData);
-
+  
   // creating shows DOM element
   function createShowsElement(apiData) {
     const showsMain = document.createElement("div");
@@ -95,23 +94,30 @@ getRes.then((response) => {
     }
     return showsMain;
   }
-
   // populating data for each api data entry
   apiData.forEach((i) => {
-    createShowsElement(i);
+    // create each new show element with api data and attach it to container
+    showsDesktop.append(createShowsElement(i))
   });
 });
 
 // Selecting the containers needed to apply active class
+// const body = document.querySelector("body");
+// const footer = document.querySelector(".footer");
 const showsMainAll = document.querySelectorAll(".shows__main");
 const showsMain = document.querySelector(".shows__main");
 const showsButtonAll = document.querySelectorAll(".shows__button");
 const showsButton = document.querySelector(".shows__button");
 const showsDesktop = document.createElement("div");
+// const showsContainer = document.createElement("div");
+const showsTitle = document.querySelector(".shows__title");
+// showsContainer.classList.add("shows-container");
 showsDesktop.classList.add("shows__desktop-div");
-shows.append(showsDesktop);
-console.log(showsButton);
+// shows.insertBefore(showsDesktop, showsTitle);
 
+// shows.append(showsContainer);
+
+shows.append(showsDesktop);
 // this variable is to keep track of which show div is active
 let activeShowsMain = null;
 
