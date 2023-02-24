@@ -11,9 +11,9 @@ function stringDate(dateCode) {
 }
 getRes.then((response) => {
   const apiData = response.data;
-  
+
   // creating shows DOM element
-  function createShowsElement(apiData) {
+  function createShowsElement(apiData, index) {
     const showsMain = document.createElement("div");
     showsMain.classList.add("shows__main");
 
@@ -85,19 +85,13 @@ getRes.then((response) => {
     showsInformationContainerLocation.append(showsInfoLocation);
     showsMain.append(showsButton);
 
-    // for selecting first data entry to add classes
-    if (apiData[0] === apiData) {
-      showsDetailsDate.classList.add("shows__details--visible");
-      showsDetailsVenue.classList.add("shows__details--visible");
-      showsDetailsLocation.classList.add("shows__details--visible");
-      showsButton.classList.add("shows__button-top");
-    }
+   
     return showsMain;
   }
   // populating data for each api data entry
   apiData.forEach((i) => {
     // create each new show element with api data and attach it to container
-    showsDesktop.append(createShowsElement(i))
+    showsDesktop.append(createShowsElement(i));
   });
 });
 
@@ -127,7 +121,7 @@ showsMainAll
     showsMain.addEventListener("click", () => {
       if (activeShowsMain) {
         // this if checks if there is a currently selected EL and removes active if there is
-        activeShowsMain.classList.remove("shows__main--active");
+        activeShowsMain.classListNaNpxove("shows__main--active");
       }
       if (showsMain !== activeShowsMain) {
         showsMain.classList.add("shows__main--active");

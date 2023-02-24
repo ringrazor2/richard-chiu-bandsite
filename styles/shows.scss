@@ -6,6 +6,14 @@
   flex-wrap: wrap;
   flex-direction: $axis;
 }
+
+@mixin maxWidth() {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+.main {
+  @include maxWidth();
+}
 .hero {
   background-image: url("../assets/Images/hero-shows.jpg");
   background-position: center;
@@ -13,14 +21,15 @@
   background-size: cover;
   height: 16rem;
   width: 100%;
-  @include global.tablet{
+  @include global.tablet {
     height: 29rem;
   }
   @include global.desktop {
     height: 40rem;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    @include maxWidth();
   }
   &__content {
     @include flex(column);
@@ -36,26 +45,27 @@
       align-items: center;
       margin: 0;
       margin-bottom: 4rem;
-      width: 77%;
+      width: 72%;
     }
   }
   &__overlay {
     height: 16rem;
-    width: 100vw;
-    position: absolute;
+    width: 100%;
+    position:absolute;
     color: #000;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
-    @include global.tablet{
+    @include global.tablet {
       height: 29rem;
     }
     @include global.desktop {
       height: 40rem;
+      @include maxWidth();
     }
   }
   &__text {
     z-index: 2;
-    @include global.tablet{
+    @include global.tablet {
       margin-top: 1rem;
     }
     @include global.desktop {
@@ -70,7 +80,6 @@
     color: white;
     font-size: 1.2rem;
     font-weight: 600;
-    // padding-left: 1rem;
     z-index: 2;
     @include global.tablet {
       font-size: 3.4rem;
@@ -98,7 +107,6 @@
       margin: 0;
       padding: 0;
       margin-bottom: 1rem;
-      
     }
   }
   &__soundcloud {
@@ -130,7 +138,6 @@
       height: 100%;
     }
     @include global.desktop {
-      width: 32vw;
       height: 100%;
     }
   }
@@ -154,7 +161,7 @@
 
   &__desktop-div {
     @include global.desktop {
-      width: 70%;
+      width: 62%;
       margin-right: 4rem;
       margin-top: 4rem;
     }
@@ -181,6 +188,11 @@
       }
     }
   }
+  &__main p {
+    @include global.desktop {
+      font-size: 0.875rem;
+    }
+  }
 
   &__title {
     font-weight: 600;
@@ -192,7 +204,7 @@
     }
     @include global.desktop {
       font-size: 2.5rem;
-      margin-left: 3rem;
+      margin-left: 7rem;
       margin-top: 3rem;
     }
   }
@@ -222,6 +234,11 @@
       @include global.desktop {
         margin-bottom: 2.5rem;
       }
+    }
+  }
+  &__main:first-child .shows__details {
+    @include global.tablet {
+      display: inline-block;
     }
   }
   &__info {
@@ -269,10 +286,8 @@
       }
       @include global.desktop {
         margin-top: 4rem;
+        font-size: 1rem;
       }
     }
-  }
-  &__divider {
-    color: variables.$mercury;
   }
 }
