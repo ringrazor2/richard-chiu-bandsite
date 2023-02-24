@@ -85,7 +85,6 @@ getRes.then((response) => {
     showsInformationContainerLocation.append(showsInfoLocation);
     showsMain.append(showsButton);
 
-   
     return showsMain;
   }
   // populating data for each api data entry
@@ -121,7 +120,7 @@ showsMainAll
     showsMain.addEventListener("click", () => {
       if (activeShowsMain) {
         // this if checks if there is a currently selected EL and removes active if there is
-        activeShowsMain.classListNaNpxove("shows__main--active");
+        activeShowsMain.classList.remove("shows__main--active");
       }
       if (showsMain !== activeShowsMain) {
         showsMain.classList.add("shows__main--active");

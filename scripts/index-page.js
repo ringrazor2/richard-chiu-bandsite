@@ -83,8 +83,7 @@ posterDesktop.classList.add("poster-desktop");
 
 body.insertBefore(posterDesktop, footer);
 body.insertBefore(posterSection, posterDesktop);
-posterDesktop.append(posterContainer);
-
+// posterDesktop.append(posterContainer);
 
 // Add default comments to page
 function addCommentsToPage(data) {
