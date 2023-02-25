@@ -1,18 +1,18 @@
 @font-face {
   font-family: "Avenir Next";
-  src: url("../../assets/Font/AvenirNextLTPro-Regular.otf") format("woff2");
+  src: url("../../assets/Font/AvenirNextLTPro-Regular.otf") format("otf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Avenir Next";
-  src: url("../../assets/Font/AvenirNextLTPro-Demi.otf") format("woff2");
+  src: url("../../assets/Font/AvenirNextLTPro-Demi.otf") format("otf");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "Avenir Next";
-  src: url("../../assets/Font/AvenirNextLTPro-Bold.otf") format("woff2");
+  src: url("../../assets/Font/AvenirNextLTPro-Bold.otf") format("otf");
   font-weight: 700;
   font-style: normal;
 }
@@ -22,7 +22,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Avenir Next";
+  font-family: "Avenir Next", Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
 
@@ -63,6 +63,8 @@ img {
 @media screen and (min-width: 80rem) {
   .nav {
     padding-left: 8rem;
+    max-width: 80rem;
+    margin: 0 auto;
   }
 }
 .nav a:not(.nav__log-link) {
@@ -750,6 +752,9 @@ img {
   margin-right: 0.625rem;
   width: 12%;
 }
+.comments__error {
+  color: #D22E2D;
+}
 
 .input__comment {
   color: #afafaf;
@@ -784,7 +789,7 @@ img {
 @media screen and (min-width: 48rem) {
   .comments__button-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
   }
 }
@@ -796,7 +801,8 @@ img {
   justify-content: flex-start;
   flex-wrap: nowrap;
   border-top: 1px solid #e1e1e1;
-  padding: 1.5rem 0 1rem 0;
+  padding: 1rem 0;
+  margin: 0 1.5rem;
 }
 @media screen and (min-width: 80rem) {
   .poster {
@@ -879,4 +885,8 @@ img {
 
 .error {
   border-color: #D22E2D;
+}
+
+.hidden {
+  color: white;
 }/*# sourceMappingURL=bio.css.map */

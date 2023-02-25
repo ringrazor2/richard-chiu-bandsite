@@ -1,55 +1,14 @@
-@use "variables";
+@use "variables" as *;
+@use "fonts" as *;
+@use "mixin" as *;
 
-// Decided to leave font-face and mixins in global folder since they are used globally
-// If project gets bigger may move to separate partials
-@font-face {
-  font-family: "Avenir Next";
-  src: url("../../assets/Font/AvenirNextLTPro-Regular.otf") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Avenir Next";
-  src: url("../../assets/Font/AvenirNextLTPro-Demi.otf") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Avenir Next";
-  src: url("../../assets/Font/AvenirNextLTPro-Bold.otf") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-}
-@mixin tablet {
-  @media screen and (min-width: 48rem) {
-    @content;
-  }
-}
-@mixin desktop {
-  @media screen and (min-width: 80rem) {
-    @content;
-  }
-}
-@mixin flex($axis) {
-  display: flex;
-  flex-direction: $axis;
-  flex-wrap: wrap;
-}
-@mixin title($fontSize, $color) {
-  color: $color;
-  font-size: $fontSize;
-}
-@mixin font($family, $weight) {
-  font-family: $family;
-  font-weight: $weight;
-}
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Avenir Next";
+  font-family: "Avenir Next", Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
 
@@ -65,7 +24,7 @@ img {
 }
 
 .nav {
-  background-color: variables.$bandSiteBlack;
+  background-color: $bandSiteBlack;
   @include flex(column);
   justify-content: center;
   padding-top: 2rem;
@@ -79,6 +38,8 @@ img {
   }
   @include desktop {
     padding-left: 8rem;
+    max-width: 80rem;
+    margin: 0 auto;
   }
   a:not(.nav__log-link) {
     padding-bottom: 2rem;
@@ -101,7 +62,7 @@ img {
     @include flex(row);
     justify-content: space-between;
     align-items: center;
-    
+
     @include tablet {
       width: 45%;
       margin-left: 2rem;
@@ -120,7 +81,7 @@ img {
   }
 
   &__link {
-    @include title(1rem, variables.$silver);
+    @include title(1rem, $silver);
     list-style: none;
     @include flex(row);
     @include tablet {
@@ -136,7 +97,7 @@ img {
       @include flex(row);
       justify-content: center;
       align-items: flex-start;
-      color: variables.$mercury;
+      color: $mercury;
       &--active {
         border-bottom: solid 0.3rem white;
         @include tablet {
@@ -156,7 +117,7 @@ img {
   }
 }
 .footer {
-  background-color: variables.$bandSiteBlack;
+  background-color: $bandSiteBlack;
   padding: 2rem 0 1.5rem 1.7rem;
   color: white;
   @include tablet {
@@ -279,4 +240,3 @@ img {
     }
   }
 }
-

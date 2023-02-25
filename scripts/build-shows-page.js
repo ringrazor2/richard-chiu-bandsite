@@ -1,24 +1,80 @@
+// Defining variables for needed functions
 const shows = document.querySelector(".shows");
 const url = "https://project-1-api.herokuapp.com/showdates?api_key=";
-const apiKey = "7c129efb-155a-47e2-a314-6a5dd9393591";
+const apiKey = "1d806e99-372f-4ae8-93ed-fa15b3cf981d";
 const getRes = axios.get(url + `${apiKey}`);
+
+// getting api data and rendering DOM to page
+getRes
+  .then((response) => {
+    const apiData = response.data;
+
+    // creating shows DOM element
+    function createShowsElement(apiData)
+    
+    const showsDesktop = document.createElement("div");
+    showsDesktop.classList.add("shows__desktop-div");
+
+    // populating data for each api data entry
+    apiData.forEach((i) => {
+      // create each new show element with api data and attach it to container
+      showsDesktop.append(createShowsElement(i));
+    });
+    shows.append(showsDesktop);
+  })
+  .then(() => { // need second then because the bellow function requires promise to be fulfilled
+    const showsMainAll = document.querySelectorAll(".shows__main");
+
+    // this variable is to keep track of which show div is active
+    let activeShowsMain = null;
+
+    // Applying active class with conditionals
+    showsMainAll.forEach((showsMain) => {
+      showsMain.addEventListener("click", () => {
+        if (activeShowsMain) {
+          // this if checks if there is a currently selected EL and removes active if there is
+          activeShowsMain.classList.remove("shows__main--active");
+        }
+        if (showsMain !== activeShowsMain) {
+          showsMain.classList.add("shows__main--active");
+          // this sets new selected div as new reference for activeShowsMain
+          activeShowsMain = showsMain;
+        }
+        // if new clicked element same as active element deselect
+        else {
+          activeShowsMain = null;
+        }
+      });
+    });
+  })
+  .catch((err) => {
+    console.err(`Error: ${err.response.status}`);
+  });
 
 //function for converting timestamp into string date
 function stringDate(dateCode) {
   const date = new Date(dateCode);
-  const dateString = date.toLocaleDateString();
+  const options = {
+    weekday: "short",
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+  };
+  const dateString = date
+    .toLocaleDateString(undefined, options)
+    .replace(/,/g, "");
   return dateString;
 }
-getRes.then((response) => {
-  const apiData = response.data;
 
-  // creating shows DOM element
-  function createShowsElement(apiData, index) {
+// generating DOM elements for show data
+  function createShowsElement(apiData) {
     const showsMain = document.createElement("div");
     showsMain.classList.add("shows__main");
 
     const showsInformationContainerDate = document.createElement("div");
-    showsInformationContainerDate.classList.add("shows__information-container");
+    showsInformationContainerDate.classList.add(
+      "shows__information-container"
+    );
     showsInformationContainerDate.classList.add(
       "shows__information-container--date"
     );
@@ -87,54 +143,3 @@ getRes.then((response) => {
 
     return showsMain;
   }
-  // populating data for each api data entry
-  apiData.forEach((i) => {
-    // create each new show element with api data and attach it to container
-    showsDesktop.append(createShowsElement(i));
-  });
-});
-
-// Selecting the containers needed to apply active class
-// const body = document.querySelector("body");
-// const footer = document.querySelector(".footer");
-const showsMainAll = document.querySelectorAll(".shows__main");
-const showsMain = document.querySelector(".shows__main");
-const showsButtonAll = document.querySelectorAll(".shows__button");
-const showsButton = document.querySelector(".shows__button");
-const showsDesktop = document.createElement("div");
-// const showsContainer = document.createElement("div");
-const showsTitle = document.querySelector(".shows__title");
-// showsContainer.classList.add("shows-container");
-showsDesktop.classList.add("shows__desktop-div");
-// shows.insertBefore(showsDesktop, showsTitle);
-
-// shows.append(showsContainer);
-
-shows.append(showsDesktop);
-// this variable is to keep track of which show div is active
-let activeShowsMain = null;
-
-// Applying active class with conditionals
-showsMainAll
-  .forEach((showsMain) => {
-    showsMain.addEventListener("click", () => {
-      if (activeShowsMain) {
-        // this if checks if there is a currently selected EL and removes active if there is
-        activeShowsMain.classList.remove("shows__main--active");
-      }
-      if (showsMain !== activeShowsMain) {
-        showsMain.classList.add("shows__main--active");
-        // this sets new selected div as new reference for activeShowsMain
-        activeShowsMain = showsMain;
-      }
-      // if new clicked element same as active element deselect
-      else {
-        activeShowsMain = null;
-      }
-    });
-    // Need this for desktop styling
-    showsDesktop.append(showsMain);
-  })
-  .catch((err) => {
-    console.err(`Error: ${err.response.status}`);
-  });

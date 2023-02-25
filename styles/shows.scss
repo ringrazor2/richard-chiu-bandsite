@@ -1,5 +1,6 @@
-@use "../styles/partials/variables";
-@use "../styles/partials/global";
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/global" as *;
+@use "../styles/partials/mixin" as *;
 
 @mixin flex($axis) {
   display: flex;
@@ -21,10 +22,10 @@
   background-size: cover;
   height: 16rem;
   width: 100%;
-  @include global.tablet {
+  @include tablet {
     height: 29rem;
   }
-  @include global.desktop {
+  @include desktop {
     height: 40rem;
     display: flex;
     justify-content: center;
@@ -37,7 +38,7 @@
     padding: 1rem;
     padding-top: 2rem;
     width: 100%;
-    @include global.desktop {
+    @include desktop {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -51,24 +52,24 @@
   &__overlay {
     height: 16rem;
     width: 100%;
-    position:absolute;
+    position: absolute;
     color: #000;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
-    @include global.tablet {
+    @include tablet {
       height: 29rem;
     }
-    @include global.desktop {
+    @include desktop {
       height: 40rem;
       @include maxWidth();
     }
   }
   &__text {
     z-index: 2;
-    @include global.tablet {
+    @include tablet {
       margin-top: 1rem;
     }
-    @include global.desktop {
+    @include desktop {
       display: flex;
       flex-flow: wrap column;
       justify-content: center;
@@ -81,12 +82,12 @@
     font-size: 1.2rem;
     font-weight: 600;
     z-index: 2;
-    @include global.tablet {
+    @include tablet {
       font-size: 3.4rem;
       padding-left: 2.5rem;
       font-weight: 600;
     }
-    @include global.desktop {
+    @include desktop {
       font-size: 3.5rem;
       font-weight: 600;
       margin: 0;
@@ -98,12 +99,12 @@
     z-index: 2;
     font-size: 0.8rem;
     margin-bottom: 0.625rem;
-    @include global.tablet {
+    @include tablet {
       font-size: 1.5rem;
       margin-top: 2rem;
       padding-left: 2.5rem;
     }
-    @include global.desktop {
+    @include desktop {
       margin: 0;
       padding: 0;
       margin-bottom: 1rem;
@@ -119,12 +120,12 @@
     margin-top: 1rem;
     z-index: 2;
 
-    @include global.tablet {
+    @include tablet {
       padding-left: 2.5rem;
       justify-content: flex-start;
       margin-top: 1.5rem;
     }
-    @include global.desktop {
+    @include desktop {
       width: auto;
     }
   }
@@ -133,11 +134,11 @@
     border-radius: 4px;
     border: none;
     width: 18rem;
-    @include global.tablet {
+    @include tablet {
       width: 22rem;
       height: 100%;
     }
-    @include global.desktop {
+    @include desktop {
       height: 100%;
     }
   }
@@ -145,14 +146,14 @@
 
 .shows {
   padding: 2rem 1rem 1rem 1rem;
-  border-bottom: 1px solid variables.$mercury;
-  @include global.tablet {
+  border-bottom: 1px solid $mercury;
+  @include tablet {
     display: flex;
     flex-flow: wrap column;
     padding: 2rem;
     padding-top: 3.5rem;
   }
-  @include global.desktop {
+  @include desktop {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -160,36 +161,36 @@
   }
 
   &__desktop-div {
-    @include global.desktop {
+    @include desktop {
       width: 62%;
       margin-right: 4rem;
       margin-top: 4rem;
     }
   }
   &__main {
-    border-bottom: solid 1px variables.$mercury;
-    @include global.tablet {
+    border-bottom: solid 1px $mercury;
+    @include tablet {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      border-bottom: solid 1px variables.$mercury;
-      margin: 1rem;
+      border-bottom: solid 1px $mercury;
+      padding: 1rem;
     }
-    @include global.desktop {
+    @include desktop {
     }
     &:hover {
-      background-color: variables.$alabaster;
+      background-color: $alabaster;
     }
     &--active {
-      background-color: variables.$mercury;
+      background-color: $mercury;
 
       &:hover {
-        background-color: variables.$mercury;
+        background-color: $mercury;
       }
     }
   }
   &__main p {
-    @include global.desktop {
+    @include desktop {
       font-size: 0.875rem;
     }
   }
@@ -198,11 +199,11 @@
     font-weight: 600;
     margin-bottom: 1rem;
     font-size: 1.4rem;
-    @include global.tablet {
+    @include tablet {
       font-size: 2rem;
       margin-left: 1rem;
     }
-    @include global.desktop {
+    @include desktop {
       font-size: 2.5rem;
       margin-left: 7rem;
       margin-top: 3rem;
@@ -210,51 +211,51 @@
   }
   &__information-container {
     margin-top: 1rem;
-    @include global.tablet {
+    @include tablet {
       display: flex;
       flex-flow: wrap column;
       margin: 0;
     }
-    @include global.desktop {
+    @include desktop {
       margin-bottom: 1rem;
     }
   }
 
   &__details {
-    color: variables.$silver;
+    color: $silver;
     font-weight: 600;
     margin-bottom: 0.625rem;
-    @include global.tablet {
+    @include tablet {
       display: none;
     }
     &--visible {
-      @include global.tablet {
+      @include tablet {
         display: inline-block;
       }
-      @include global.desktop {
+      @include desktop {
         margin-bottom: 2.5rem;
       }
     }
   }
   &__main:first-child .shows__details {
-    @include global.tablet {
+    @include tablet {
       display: inline-block;
     }
   }
   &__info {
     margin-bottom: 1.2rem;
-    @include global.tablet {
+    @include tablet {
       margin-top: 2rem;
     }
     &--date {
       font-weight: 600;
-      @include global.tablet {
+      @include tablet {
         margin-top: 2rem;
       }
     }
   }
   &__button {
-    background-color: variables.$bandSiteBlack;
+    background-color: $bandSiteBlack;
     color: white;
     height: 2.5rem;
     width: 100%;
@@ -273,7 +274,7 @@
       background-color: black;
     }
 
-    @include global.tablet {
+    @include tablet {
       width: auto;
       margin: 0;
       font-size: 1.2rem;
@@ -281,10 +282,10 @@
       align-self: center;
     }
     &-top {
-      @include global.tablet {
+      @include tablet {
         margin-top: 2rem;
       }
-      @include global.desktop {
+      @include desktop {
         margin-top: 4rem;
         font-size: 1rem;
       }

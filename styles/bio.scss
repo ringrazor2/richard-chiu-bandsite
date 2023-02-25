@@ -1,25 +1,16 @@
-@use "./partials/global";
-@use "./partials/variables";
-
-@mixin flex($axis) {
-  display: flex;
-  flex-direction: $axis;
-  flex-wrap: wrap;
-}
-
-@mixin maxWidth() {
-  max-width: 80rem;
-  margin: 0 auto;
-}
+@use "./partials/global" as *;
+@use "./partials/variables" as *;
+@use "./partials/_mixin" as *;
+@use "./partials/_fonts" as *;
 
 .header {
-  @include global.desktop {
+  @include desktop {
     @include maxWidth();
   }
 }
 
-.main{
-  @include global.desktop{
+.main {
+  @include desktop {
     @include maxWidth();
   }
 }
@@ -33,10 +24,10 @@
   @include flex(row);
   align-items: center;
   position: relative;
-  @include global.tablet{
-    height: 24rem
+  @include tablet {
+    height: 24rem;
   }
-  @include global.desktop {
+  @include desktop {
     height: 40rem;
   }
   &__overlay {
@@ -46,10 +37,10 @@
     color: #000;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
-    @include global.tablet{
+    @include tablet {
       height: 24rem;
     }
-    @include global.desktop {
+    @include desktop {
       height: 40rem;
     }
   }
@@ -60,12 +51,12 @@
     font-weight: 700;
     padding-left: 1rem;
     z-index: 2;
-    @include global.tablet {
+    @include tablet {
       font-size: 3.7rem;
       padding-left: 2.5rem;
       font-weight: 600;
     }
-    @include global.desktop {
+    @include desktop {
       font-size: 4rem;
       font-weight: 600;
       padding-left: 8rem;
@@ -75,44 +66,44 @@
 }
 .musicians {
   padding: 1.3rem 2rem 0 2rem;
-  @include global.tablet {
+  @include tablet {
     padding: 3rem 2.5rem;
     @include flex(column);
     justify-content: center;
     align-items: center;
   }
-  @include global.desktop {
+  @include desktop {
     padding: 3rem 8rem;
   }
   &__title {
     font-size: 1.3rem;
     font-weight: 600;
     padding-bottom: 0.75rem;
-    @include global.tablet {
+    @include tablet {
       padding-bottom: 1.5rem;
       align-self: flex-start;
       font-size: 2.5rem;
     }
-    @include global.desktop {
+    @include desktop {
       font-size: 2.4rem;
     }
   }
   &__main {
-    @include global.tablet {
+    @include tablet {
       padding: 0 3rem;
     }
-    @include global.desktop {
+    @include desktop {
       padding: 0 5.5rem;
     }
   }
   &__img {
     height: 10rem;
     width: 100%;
-    @include global.tablet {
+    @include tablet {
       height: 20rem;
       padding: 0;
     }
-    @include global.desktop {
+    @include desktop {
       width: 100%;
       height: 28rem;
     }
@@ -122,7 +113,7 @@
     margin-top: 0.3rem;
     font-weight: 600;
     line-height: 1.4rem;
-    @include global.tablet {
+    @include tablet {
       font-size: 1.6rem;
       margin-top: 1.5rem;
     }
@@ -130,12 +121,12 @@
   &__quote {
     font-size: 0.8rem;
     margin-top: 1rem;
-    @include global.tablet {
+    @include tablet {
       margin-top: 2rem;
       font-size: 1.3rem;
       line-height: 2rem;
     }
-    @include global.desktop {
+    @include desktop {
       font-size: 1.5rem;
       font-weight: 500;
       padding-right: 9rem;
@@ -144,11 +135,11 @@
   }
   &__author {
     font-size: 0.8rem;
-    @include global.tablet {
+    @include tablet {
       margin-top: 0.5rem;
       font-size: 1.2rem;
     }
-    @include global.tablet {
+    @include tablet {
       margin-top: 1.2rem;
       font-weight: 500;
     }
@@ -158,7 +149,7 @@
     font-size: 0.8rem;
     margin: 1.5rem 0;
     font-weight: 500;
-    @include global.tablet {
+    @include tablet {
       font-weight: 600;
       align-self: flex-start;
       padding: 0;
@@ -169,26 +160,26 @@
   &__bio {
     font-size: 0.7rem;
     line-height: 1.13rem;
-    @include global.tablet {
+    @include tablet {
       margin-right: 1.4rem;
       font-size: 0.85rem;
       width: 47%;
       line-height: 1.5rem;
     }
-    @include global.desktop {
+    @include desktop {
       line-height: 1.625rem;
     }
     &-main {
       margin-bottom: 2rem;
     }
     &-container {
-      @include global.tablet {
+      @include tablet {
         @include flex(row);
       }
     }
     &-cont {
       margin: 1rem 0;
-      @include global.tablet {
+      @include tablet {
         margin: 0;
         width: 48%;
       }
@@ -198,12 +189,12 @@
 
 .gallery {
   padding: 0 1.5rem;
-  background-color: variables.$alabaster;
+  background-color: $alabaster;
   @include flex(column);
-  @include global.tablet {
+  @include tablet {
     padding: 0 3rem;
   }
-  @include global.desktop {
+  @include desktop {
     padding: 3rem 8rem;
   }
 
@@ -211,9 +202,9 @@
     font-size: 2.4rem;
     font-weight: 600;
     padding-bottom: 2rem;
-    @include global.tablet {
+    @include tablet {
     }
-    @include global.desktop {
+    @include desktop {
     }
   }
   &__imgs {
@@ -221,15 +212,15 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    @include global.tablet {
+    @include tablet {
       @include flex(row);
       gap: 1rem;
       justify-content: space-evenly;
     }
-    @include global.tablet {
+    @include tablet {
       gap: 1.5rem;
     }
-    @include global.desktop {
+    @include desktop {
       gap: 1.5rem;
     }
   }
@@ -237,12 +228,12 @@
     margin-bottom: 1rem;
     height: 30%;
     width: 100%;
-    @include global.tablet {
+    @include tablet {
       width: 30%;
       padding: 0;
       margin-bottom: 0;
     }
-    @include global.desktop {
+    @include desktop {
       width: 31%;
       margin-bottom: 0;
     }
@@ -251,10 +242,10 @@
 .comments {
   padding: 1.5rem 2rem 2rem 2rem;
   @include flex(column);
-  @include global.tablet {
+  @include tablet {
     padding: 3rem 0 0 3rem;
   }
-  @include global.desktop {
+  @include desktop {
     align-items: center;
     padding: 3rem 0 0 8rem;
   }
@@ -263,41 +254,41 @@
     margin-bottom: 1.5rem;
   }
   &__form-container {
-    @include global.tablet {
+    @include tablet {
       width: 90%;
     }
   }
   &__title {
-    color: variables.$bandSiteBlack;
+    color: $bandSiteBlack;
     font-size: 1.5rem;
     font-weight: 600;
     margin-left: 1.2rem;
-    @include global.tablet {
+    @include tablet {
       margin: 0;
       margin-bottom: 1.5rem;
       font-size: 2.4rem;
     }
-    @include global.desktop {
+    @include desktop {
     }
 
     &-container {
-      @include global.desktop {
+      @include desktop {
         align-self: flex-start;
         margin-right: 10rem;
       }
     }
   }
   &__article {
-    @include global.tablet {
+    @include tablet {
       padding-bottom: 0.5rem;
     }
-    @include global.desktop {
+    @include desktop {
       width: 76vw;
     }
   }
   &__main {
     @include flex(row);
-    @include global.tablet {
+    @include tablet {
       justify-content: center;
     }
   }
@@ -305,10 +296,10 @@
     @include flex(row);
     align-items: center;
     width: 84%;
-    @include global.desktop {
+    @include desktop {
       width: 85%;
       &-container {
-        @include global.desktop {
+        @include desktop {
           width: 60%;
         }
       }
@@ -323,7 +314,7 @@
       &-input {
         padding: 0.75rem;
         border-radius: 0.25rem;
-        border: solid 1px variables.$mercury;
+        border: solid 1px $mercury;
         margin-top: 0.1875rem;
         width: 100%;
         background-color: #fcfafa;
@@ -336,7 +327,7 @@
       }
 
       &-label {
-        color: variables.$silver;
+        color: $silver;
         font-weight: 500;
         margin-bottom: 0.625rem;
         margin-top: 1.25rem;
@@ -352,7 +343,7 @@
     &-text-input {
       height: 3.75rem;
       border-radius: 0.25rem;
-      border: solid 1px variables.$mercury;
+      border: solid 1px $mercury;
       padding-bottom: 4.7rem;
       margin-bottom: 1.25rem;
     }
@@ -368,16 +359,19 @@
     border-radius: 50%;
 
     &-container {
-      @include global.flex(row);
+      @include flex(row);
       justify-content: flex-end;
       margin-top: 1.8rem;
       margin-right: 0.625rem;
       width: 12%;
     }
   }
+  &__error {
+    color: $error;
+  }
 }
 .input__comment {
-  color: variables.$silver;
+  color: $silver;
   font-weight: 500;
   margin-bottom: 0.625rem;
   width: 100%;
@@ -389,7 +383,7 @@
   border-color: black;
 }
 .comments__button {
-  background-color: variables.$bandSiteBlack;
+  background-color: $bandSiteBlack;
   color: white;
   height: 2.5rem;
   width: 100%;
@@ -397,7 +391,7 @@
   border: none;
   cursor: pointer;
 
-  @include global.tablet {
+  @include tablet {
     width: 31%;
   }
 
@@ -405,9 +399,9 @@
     background-color: black;
   }
   &-container {
-    @include global.tablet {
+    @include tablet {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       width: 100%;
     }
   }
@@ -417,22 +411,21 @@
   @include flex(row);
   justify-content: flex-start;
   flex-wrap: nowrap;
-  border-top: 1px solid variables.$mercury;
-  padding: 1.5rem 0 1rem 0;
+  border-top: 1px solid $mercury;
+  padding: 1rem 0;
+  margin: 0 1.5rem;
 
-  @include global.tablet {
-  }
-  @include global.desktop {
+  @include desktop {
     @include flex(row);
     width: 60%;
     border-top-width: 90%;
   }
 
   &-container {
-    @include global.tablet {
+    @include tablet {
       margin: 0 6.2rem 0 6rem;
     }
-    @include global.desktop {
+    @include desktop {
       display: flex;
       flex-wrap: wrap;
       margin: 0 6.2rem 0 19rem;
@@ -441,12 +434,12 @@
   &__icon {
     &-container {
       margin-right: 1.25rem;
-      @include global.desktop {
+      @include desktop {
         padding-top: 1.5rem;
       }
     }
     &__avatar-default {
-      background-color: variables.$mercury;
+      background-color: $mercury;
       height: 2.5rem;
       width: 2.5rem;
       border-radius: 50%;
@@ -454,7 +447,7 @@
   }
   &__main-container {
     width: 90%;
-    @include global.desktop {
+    @include desktop {
       width: 87%;
     }
   }
@@ -469,7 +462,7 @@
     }
   }
   &__date {
-    color: variables.$mercury;
+    color: $mercury;
     font-weight: 600;
     font-size: 0.875rem;
   }
@@ -481,16 +474,20 @@
   }
 }
 .poster-container .poster:last-child {
-  border-bottom: 1px solid variables.$mercury;
+  border-bottom: 1px solid $mercury;
   margin-bottom: 2rem;
 }
 
-.poster-desktop{
-@include global.desktop{
-  @include maxWidth;
-}
+.poster-desktop {
+  @include desktop {
+    @include maxWidth;
+  }
 }
 
 .error {
-  border-color: variables.$error;
+  border-color: $error;
+}
+
+.hidden {
+  color: white;
 }
