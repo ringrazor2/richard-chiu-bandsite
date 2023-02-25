@@ -1,7 +1,0 @@
- // for selecting first data entry to add classes
-    if (apiData[0] == 0) {
-      showsDetailsDate.classList.add("shows__details--visible");
-      showsDetailsVenue.classList.add("shows__details--visible");
-      showsDetailsLocation.classList.add("shows__details--visible");
-      showsButton.classList.add("shows__button-top");
-    }

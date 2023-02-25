@@ -523,6 +523,7 @@ img {
 }
 .shows__main:hover {
   background-color: #fafafa;
+  cursor: pointer;
 }
 .shows__main--active {
   background-color: #e1e1e1;

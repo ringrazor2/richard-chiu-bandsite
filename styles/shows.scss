@@ -180,6 +180,7 @@
     }
     &:hover {
       background-color: $alabaster;
+      cursor: pointer;
     }
     &--active {
       background-color: $mercury;
