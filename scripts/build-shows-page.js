@@ -1,7 +1,7 @@
 // Defining variables for needed functions
 const shows = document.querySelector(".shows");
 const url = "https://project-1-api.herokuapp.com/showdates?api_key=";
-const apiKey = "1d806e99-372f-4ae8-93ed-fa15b3cf981d";
+const apiKey = "0e9d4f12-db1a-4534-a530-18758a000e9e";
 const getRes = axios.get(url + `${apiKey}`);
 
 // getting api data and rendering DOM to page
@@ -87,6 +87,7 @@ getRes
       return showsMain;
     }
 
+    // main container to append the data generated DOM
     const showsDesktop = document.createElement("div");
     showsDesktop.classList.add("shows__desktop-div");
 

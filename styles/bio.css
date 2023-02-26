@@ -344,7 +344,7 @@ img {
 }
 @media screen and (min-width: 48rem) {
   .hero {
-    height: 24rem;
+    height: 30rem;
   }
 }
 @media screen and (min-width: 80rem) {
@@ -362,7 +362,7 @@ img {
 }
 @media screen and (min-width: 48rem) {
   .hero__overlay {
-    height: 24rem;
+    height: 30rem;
   }
 }
 @media screen and (min-width: 80rem) {

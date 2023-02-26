@@ -25,7 +25,7 @@
   align-items: center;
   position: relative;
   @include tablet {
-    height: 24rem;
+    height: 30rem;
   }
   @include desktop {
     height: 40rem;
@@ -38,7 +38,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
     @include tablet {
-      height: 24rem;
+      height: 30rem;
     }
     @include desktop {
       height: 40rem;

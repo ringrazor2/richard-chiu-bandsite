@@ -6,7 +6,7 @@ const commentForm = document.querySelector(".comments__form");
 
 // data for api
 const url = "https://project-1-api.herokuapp.com/comments?api_key=";
-const apiKey = "1d806e99-372f-4ae8-93ed-fa15b3cf981d";
+const apiKey = "0e9d4f12-db1a-4534-a530-18758a000e9e";
 
 // filling in DOM with API data and rendering on page
 function displayCommentData() {
@@ -103,7 +103,7 @@ function createCommentElement(commentData) {
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
   deleteButton.textContent = "Delete";
-  deleteButton.dataset.id = commentData.id;  //need to set and id for the delete fx
+  deleteButton.dataset.id = commentData.id; //need to set and id for the delete fx
 
   article.append(posterIconContainer);
   posterIconContainer.append(posterIconAvatar);
@@ -191,5 +191,8 @@ function deleteComment(id) {
     )
     .then((response) => {
       displayCommentData(); // refresh the comment section after deleting a comment
+    })
+    .catch((err) => {
+      console.error(`Error: ${err.response.status}`);
     });
 }
