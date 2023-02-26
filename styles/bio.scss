@@ -212,6 +212,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+
     @include tablet {
       @include flex(row);
       gap: 1rem;
@@ -228,6 +229,12 @@
     margin-bottom: 1rem;
     height: 30%;
     width: 100%;
+    filter: grayscale(100%);
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      filter: grayscale(0%);
+    }
     @include tablet {
       width: 30%;
       padding: 0;
@@ -382,7 +389,7 @@
   color: black;
   border-color: black;
 }
-.comments__button {
+.comments__button, .delete-button {
   background-color: $bandSiteBlack;
   color: white;
   height: 2.5rem;
@@ -407,6 +414,13 @@
   }
 }
 
+.delete-button{
+  color: red;
+  width: 50%;
+  @include tablet {
+    width: 18%;
+  }
+}
 .poster {
   @include flex(row);
   justify-content: flex-start;

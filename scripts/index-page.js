@@ -56,9 +56,14 @@ function addCommentsToPage(data) {
   data.forEach((comment) => {
     const newComment = createCommentElement(comment);
     posterSection.append(newComment);
+
+    // selecting the delete button for each comment generated and adding the delete fx when clicked
+    const deleteButton = newComment.querySelector(".delete-button");
+    deleteButton.addEventListener("click", () => {
+      deleteComment(comment.id);
+    });
   });
 }
-
 // Creating DOM elements needed for comments
 function createCommentElement(commentData) {
   const article = document.createElement("article");
@@ -94,6 +99,12 @@ function createCommentElement(commentData) {
   posterComment.classList.add("poster__comment");
   posterComment.textContent = commentData.comment;
 
+  //diving deeper delete button
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete-button");
+  deleteButton.textContent = "Delete";
+  deleteButton.dataset.id = commentData.id;  //need to set and id for the delete fx
+
   article.append(posterIconContainer);
   posterIconContainer.append(posterIconAvatar);
   article.append(posterMainContainer);
@@ -103,10 +114,10 @@ function createCommentElement(commentData) {
   posterNameDateContainer.append(posterDate);
   posterMainContainer.append(posterCommentContainer);
   posterCommentContainer.append(posterComment);
+  posterMainContainer.append(deleteButton);
 
   return article;
 }
-
 // Adding user data to array then rendering data
 function commentPush() {
   // Getting user data
@@ -169,5 +180,16 @@ function commentPush() {
     })
     .catch((err) => {
       console.err(`Error: ${err.response.status}`);
+    });
+}
+
+// function for deleting comments
+function deleteComment(id) {
+  axios
+    .delete(
+      `https://project-1-api.herokuapp.com/comments/${id}?api_key=${apiKey}`
+    )
+    .then((response) => {
+      displayCommentData(); // refresh the comment section after deleting a comment
     });
 }

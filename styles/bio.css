@@ -601,6 +601,11 @@ img {
   margin-bottom: 1rem;
   height: 30%;
   width: 100%;
+  filter: grayscale(100%);
+  transition: all 0.5s ease-in-out;
+}
+.gallery__img:hover {
+  filter: grayscale(0%);
 }
 @media screen and (min-width: 48rem) {
   .gallery__img {
@@ -769,7 +774,7 @@ img {
   border-color: black;
 }
 
-.comments__button {
+.comments__button, .delete-button {
   background-color: #323232;
   color: white;
   height: 2.5rem;
@@ -779,18 +784,28 @@ img {
   cursor: pointer;
 }
 @media screen and (min-width: 48rem) {
-  .comments__button {
+  .comments__button, .delete-button {
     width: 31%;
   }
 }
-.comments__button:hover {
+.comments__button:hover, .delete-button:hover {
   background-color: black;
 }
 @media screen and (min-width: 48rem) {
-  .comments__button-container {
+  .comments__button-container, .delete-button-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
+  }
+}
+
+.delete-button {
+  color: red;
+  width: 50%;
+}
+@media screen and (min-width: 48rem) {
+  .delete-button {
+    width: 18%;
   }
 }
 
